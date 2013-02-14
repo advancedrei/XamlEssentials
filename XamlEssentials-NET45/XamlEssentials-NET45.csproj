@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{57F77F5C-D59D-4423-B41F-16F8530F6604}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>XamlEssentials</RootNamespace>
+    <AssemblyName>XamlEssentials.NET45</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\XamlEssentials-NET4\Converters\BooleanToVisibilityConverter.cs">
+      <Link>Converters\BooleanToVisibilityConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\XamlEssentials-NET4\Converters\CollectionCountToVisibilityConverter.cs">
+      <Link>Converters\CollectionCountToVisibilityConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\XamlEssentials-NET4\Converters\IntegerIsNotZeroConverter.cs">
+      <Link>Converters\IntegerIsNotZeroConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\XamlEssentials-NET4\Converters\IntEqualToVisibilityConverter.cs">
+      <Link>Converters\IntEqualToVisibilityConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\XamlEssentials-NET4\Converters\IntGreaterOrEqualToVisibilityConverter.cs">
+      <Link>Converters\IntGreaterOrEqualToVisibilityConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\XamlEssentials-NET4\Converters\IntLessThanToVisibilityConverter.cs">
+      <Link>Converters\IntLessThanToVisibilityConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\XamlEssentials-NET4\Converters\IntNotEqualToVisibilityConverter.cs">
+      <Link>Converters\IntNotEqualToVisibilityConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\XamlEssentials-NET4\Converters\IntToEnumConverter.cs">
+      <Link>Converters\IntToEnumConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\XamlEssentials-NET4\Converters\ItemToIndexConverter.cs">
+      <Link>Converters\ItemToIndexConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\XamlEssentials-NET4\Converters\LocalizableEnumToFriendlyNameConverter.cs">
+      <Link>Converters\LocalizableEnumToFriendlyNameConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\XamlEssentials-NET4\Converters\MultiVisibilityConverter.cs">
+      <Link>Converters\MultiVisibilityConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\XamlEssentials-NET4\Converters\NullToVisibilityConverter.cs">
+      <Link>Converters\NullToVisibilityConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\XamlEssentials-NET4\Converters\StringComparisonToBooleanConverter.cs">
+      <Link>Converters\StringComparisonToBooleanConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\XamlEssentials-NET4\Converters\StringFormatConverter.cs">
+      <Link>Converters\StringFormatConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\XamlEssentials-NET4\Converters\StringNotEmptyToVisibilityConverter.cs">
+      <Link>Converters\StringNotEmptyToVisibilityConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\XamlEssentials-NET4\Converters\StringToBooleanConverter.cs">
+      <Link>Converters\StringToBooleanConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\XamlEssentials-NET4\Converters\StringToEnumConverter.cs">
+      <Link>Converters\StringToEnumConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\XamlEssentials-NET4\Converters\TypeComparisonToVisibilityConverter.cs">
+      <Link>Converters\TypeComparisonToVisibilityConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\XamlEssentials-NET4\LocalizableDescriptionAttribute.cs">
+      <Link>LocalizableDescriptionAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\XamlEssentials-NET4\MarkupExtensions\ConvertibleMarkupExtension.cs">
+      <Link>MarkupExtensions\ConvertibleMarkupExtension.cs</Link>
+    </Compile>
+    <Compile Include="..\XamlEssentials-NET4\MarkupExtensions\EnumListExtension.cs">
+      <Link>MarkupExtensions\EnumListExtension.cs</Link>
+    </Compile>
+    <Compile Include="..\XamlEssentials-NET4\SharedAssemblyInfo.cs">
+      <Link>SharedAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

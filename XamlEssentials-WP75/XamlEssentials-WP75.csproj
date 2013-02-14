@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1361581E-10CE-4BF1-8947-8655634716E8}</ProjectGuid>
+    <ProjectTypeGuids>{C089C8C0-30E0-4E22-80C0-CE093F111A43};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>XamlEssentials</RootNamespace>
+    <AssemblyName>XamlEssentials.WP75</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <TargetFrameworkProfile>WindowsPhone71</TargetFrameworkProfile>
+    <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
+    <SilverlightApplication>false</SilverlightApplication>
+    <ValidateXaml>true</ValidateXaml>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System.Windows" />
+    <Reference Include="system" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Net" />
+    <Reference Include="mscorlib.extensions" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\XamlEssentials-NET4\Converters\CollectionCountToVisibilityConverter.cs">
+      <Link>Converters\CollectionCountToVisibilityConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\XamlEssentials-NET4\Converters\IntegerIsNotZeroConverter.cs">
+      <Link>Converters\IntegerIsNotZeroConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\XamlEssentials-NET4\Converters\IntEqualToVisibilityConverter.cs">
+      <Link>Converters\IntEqualToVisibilityConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\XamlEssentials-NET4\Converters\IntGreaterOrEqualToVisibilityConverter.cs">
+      <Link>Converters\IntGreaterOrEqualToVisibilityConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\XamlEssentials-NET4\Converters\IntLessThanToVisibilityConverter.cs">
+      <Link>Converters\IntLessThanToVisibilityConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\XamlEssentials-NET4\Converters\IntNotEqualToVisibilityConverter.cs">
+      <Link>Converters\IntNotEqualToVisibilityConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\XamlEssentials-NET4\Converters\IntToEnumConverter.cs">
+      <Link>Converters\IntToEnumConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\XamlEssentials-NET4\Converters\ItemToIndexConverter.cs">
+      <Link>Converters\ItemToIndexConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\XamlEssentials-NET4\Converters\LocalizableEnumToFriendlyNameConverter.cs">
+      <Link>Converters\LocalizableEnumToFriendlyNameConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\XamlEssentials-NET4\Converters\NullToVisibilityConverter.cs">
+      <Link>Converters\NullToVisibilityConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\XamlEssentials-NET4\Converters\StringComparisonToBooleanConverter.cs">
+      <Link>Converters\StringComparisonToBooleanConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\XamlEssentials-NET4\Converters\StringFormatConverter.cs">
+      <Link>Converters\StringFormatConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\XamlEssentials-NET4\Converters\StringNotEmptyToVisibilityConverter.cs">
+      <Link>Converters\StringNotEmptyToVisibilityConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\XamlEssentials-NET4\Converters\StringToBooleanConverter.cs">
+      <Link>Converters\StringToBooleanConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\XamlEssentials-NET4\Converters\StringToEnumConverter.cs">
+      <Link>Converters\StringToEnumConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\XamlEssentials-NET4\Converters\TypeComparisonToVisibilityConverter.cs">
+      <Link>Converters\TypeComparisonToVisibilityConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\XamlEssentials-NET4\LocalizableDescriptionAttribute.cs">
+      <Link>LocalizableDescriptionAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\XamlEssentials-NET4\SharedAssemblyInfo.cs">
+      <Link>SharedAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.CSharp.targets" />
+  <ProjectExtensions />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

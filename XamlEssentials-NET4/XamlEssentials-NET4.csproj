@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{42C48EFB-725E-4648-8DDD-07D72CF14D35}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>XamlEssentials</RootNamespace>
+    <AssemblyName>XamlEssentials.NET4</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="SharedAssemblyInfo.cs" />
+    <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
+    <Compile Include="Converters\CollectionCountToVisibilityConverter.cs" />
+    <Compile Include="Converters\IntegerIsNotZeroConverter.cs" />
+    <Compile Include="Converters\IntEqualToVisibilityConverter.cs" />
+    <Compile Include="Converters\IntGreaterOrEqualToVisibilityConverter.cs" />
+    <Compile Include="Converters\IntLessThanToVisibilityConverter.cs" />
+    <Compile Include="Converters\IntNotEqualToVisibilityConverter.cs" />
+    <Compile Include="Converters\IntToEnumConverter.cs" />
+    <Compile Include="Converters\ItemToIndexConverter.cs" />
+    <Compile Include="Converters\LocalizableEnumToFriendlyNameConverter.cs" />
+    <Compile Include="Converters\MultiVisibilityConverter.cs" />
+    <Compile Include="Converters\NullToVisibilityConverter.cs" />
+    <Compile Include="Converters\StringComparisonToBooleanConverter.cs" />
+    <Compile Include="Converters\StringFormatConverter.cs" />
+    <Compile Include="Converters\StringNotEmptyToVisibilityConverter.cs" />
+    <Compile Include="Converters\StringToBooleanConverter.cs" />
+    <Compile Include="Converters\StringToEnumConverter.cs" />
+    <Compile Include="Converters\TypeComparisonToVisibilityConverter.cs" />
+    <Compile Include="LocalizableDescriptionAttribute.cs" />
+    <Compile Include="MarkupExtensions\ConvertibleMarkupExtension.cs" />
+    <Compile Include="MarkupExtensions\EnumListExtension.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
