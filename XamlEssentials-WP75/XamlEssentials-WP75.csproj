@@ -41,6 +41,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Phone" />
     <Reference Include="System.Windows" />
     <Reference Include="system" />
     <Reference Include="System.Core" />
@@ -100,11 +101,18 @@
     <Compile Include="..\XamlEssentials-NET4\LocalizableDescriptionAttribute.cs">
       <Link>LocalizableDescriptionAttribute.cs</Link>
     </Compile>
+    <Compile Include="..\XamlEssentials-NET4\PhoneExtendedPropertiesHelper.cs">
+      <Link>PhoneExtendedPropertiesHelper.cs</Link>
+    </Compile>
     <Compile Include="..\XamlEssentials-NET4\SharedAssemblyInfo.cs">
       <Link>SharedAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="..\XamlEssentials-NET4\Storage\StoredItem_T.cs">
+      <Link>Storage\StoredItem_T.cs</Link>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.CSharp.targets" />
   <ProjectExtensions />

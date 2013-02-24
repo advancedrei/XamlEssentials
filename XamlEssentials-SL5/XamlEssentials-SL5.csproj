@@ -117,6 +117,9 @@
     <Compile Include="..\XamlEssentials-NET4\SharedAssemblyInfo.cs">
       <Link>SharedAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="..\XamlEssentials-NET4\Storage\StoredItem_T.cs">
+      <Link>Storage\StoredItem_T.cs</Link>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />

@@ -34,7 +34,7 @@
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>Bin\Release</OutputPath>
-    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE;WP8</DefineConstants>
     <NoStdLib>true</NoStdLib>
     <NoConfig>true</NoConfig>
     <ErrorReport>prompt</ErrorReport>
@@ -134,8 +134,14 @@
     <Compile Include="..\XamlEssentials-NET4\LocalizableDescriptionAttribute.cs">
       <Link>LocalizableDescriptionAttribute.cs</Link>
     </Compile>
+    <Compile Include="..\XamlEssentials-NET4\PhoneExtendedPropertiesHelper.cs">
+      <Link>PhoneExtendedPropertiesHelper.cs</Link>
+    </Compile>
     <Compile Include="..\XamlEssentials-NET4\SharedAssemblyInfo.cs">
       <Link>SharedAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\XamlEssentials-NET4\Storage\StoredItem_T.cs">
+      <Link>Storage\StoredItem_T.cs</Link>
     </Compile>
     <Compile Include="Converters\ContactImageConverter.cs" />
     <Compile Include="Extensions\ContactExtensions.cs" />
