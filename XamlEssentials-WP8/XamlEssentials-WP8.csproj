@@ -143,8 +143,10 @@
     <Compile Include="..\XamlEssentials-NET4\Storage\StoredItem_T.cs">
       <Link>Storage\StoredItem_T.cs</Link>
     </Compile>
+    <Compile Include="ApplicationInfoHelper.cs" />
     <Compile Include="Converters\ContactImageConverter.cs" />
     <Compile Include="Extensions\ContactExtensions.cs" />
+    <Compile Include="Extensions\QueryExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

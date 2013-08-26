@@ -15,7 +15,7 @@ namespace XamlEssentials
     /// Based on code from http://www.nickharris.net/2010/09/windows-phone-7-how-to-find-the-device-unique-id-windows-live-anonymous-id-and-manufacturer/,
     /// However, the Manufacturer now comes from DeviceStatus.
     /// </remarks>
-    public static class PhoneExtendedPropertyHelper
+    public static class PhoneExtendedPropertiesHelper
     {
         #region Private Members
 
@@ -27,14 +27,14 @@ namespace XamlEssentials
         //Note: to get a result requires ID_CAP_IDENTITY_DEVICE
         // to be added to the capabilities of the WMAppManifest
         // this will then warn users in marketplace
-        public static byte[] GetDeviceUniqueId()
+        public static string GetDeviceUniqueId()
         {
             byte[] result = null;
             object uniqueId;
             if (DeviceExtendedProperties.TryGetValue("DeviceUniqueId", out uniqueId))
                 result = (byte[])uniqueId;
 
-            return result;
+            return result != null ? Convert.ToBase64String(result) : "";
         }
 
         // NOTE: to get a result requires ID_CAP_IDENTITY_USER
