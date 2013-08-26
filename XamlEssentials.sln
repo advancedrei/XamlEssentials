@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.20623.1 VSUPREVIEW
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XamlEssentials-WinRT", "XamlEssentials-WinRT\XamlEssentials-WinRT.csproj", "{DBBDC61D-0A21-4751-A3E8-866682EF4611}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XamlEssentials-NET4", "XamlEssentials-NET4\XamlEssentials-NET4.csproj", "{42C48EFB-725E-4648-8DDD-07D72CF14D35}"
@@ -14,6 +16,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XamlEssentials-SL5", "XamlEssentials-SL5\XamlEssentials-SL5.csproj", "{35149C24-46A0-434F-94BD-AC54CCE43683}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XamlEssentials-SL4", "XamlEssentials-SL4\XamlEssentials-SL4.csproj", "{BABFCD28-576D-4C11-A5BF-90BF651A9C6C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XamlEssentials-WinRT81", "XamlEssentials-WinRT81\XamlEssentials-WinRT81.csproj", "{7939B910-AFC7-44E9-A968-515F2A91974B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -85,6 +89,14 @@ Global
 		{BABFCD28-576D-4C11-A5BF-90BF651A9C6C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BABFCD28-576D-4C11-A5BF-90BF651A9C6C}.Release|ARM.ActiveCfg = Release|Any CPU
 		{BABFCD28-576D-4C11-A5BF-90BF651A9C6C}.Release|x86.ActiveCfg = Release|Any CPU
+		{7939B910-AFC7-44E9-A968-515F2A91974B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7939B910-AFC7-44E9-A968-515F2A91974B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7939B910-AFC7-44E9-A968-515F2A91974B}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{7939B910-AFC7-44E9-A968-515F2A91974B}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{7939B910-AFC7-44E9-A968-515F2A91974B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7939B910-AFC7-44E9-A968-515F2A91974B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7939B910-AFC7-44E9-A968-515F2A91974B}.Release|ARM.ActiveCfg = Release|Any CPU
+		{7939B910-AFC7-44E9-A968-515F2A91974B}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
