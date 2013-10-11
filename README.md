@@ -3,12 +3,13 @@
 
 XamlEssentials is a cross-platform set of libraries (not a Portable Class Library) that provides a number of useful tools and utilities for Microsoft's XAML-based platforms.
 
-Please see this blog post for a list of what the package contains.
+Please see [this blog post[(http://advancedrei.com/blogs/development/introducing-xamlessentials-cross-platform-helpers-for-microsoft-xaml) for a list of what the package contains.
 
 Quick start
 -----------
 
 Install the NuGet package: `Install-Package XamlEssentials`, clone the repo, `git clone git://github.com/advancedrei/xamlessentials.git`, or [download the latest release](https://github.com/advancedrei/xamlessentials/zipball/master).
+
 
 Bug tracker
 -----------
