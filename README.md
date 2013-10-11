@@ -3,7 +3,7 @@
 
 XamlEssentials is a cross-platform set of libraries (not a Portable Class Library) that provides a number of useful tools and utilities for Microsoft's XAML-based platforms.
 
-Please see [this blog post[(http://advancedrei.com/blogs/development/introducing-xamlessentials-cross-platform-helpers-for-microsoft-xaml) for a list of what the package contains.
+Please see [this blog post](http://advancedrei.com/blogs/development/introducing-xamlessentials-cross-platform-helpers-for-microsoft-xaml) for a list of what the package contains.
 
 Quick start
 -----------
