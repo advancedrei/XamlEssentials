@@ -90,6 +90,9 @@
     <Optimize>true</Optimize>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="..\XamlEssentials-NET4\Converters\BooleanToVisibilityConverter.cs">
+      <Link>Converters\BooleanToVisibilityConverter.cs</Link>
+    </Compile>
     <Compile Include="..\XamlEssentials-NET4\Converters\CollectionCountToVisibilityConverter.cs">
       <Link>Converters\CollectionCountToVisibilityConverter.cs</Link>
     </Compile>
@@ -141,17 +144,20 @@
     <Compile Include="..\XamlEssentials-NET4\LocalizableDescriptionAttribute.cs">
       <Link>LocalizableDescriptionAttribute.cs</Link>
     </Compile>
-    <Compile Include="..\XamlEssentials-NET4\PhoneExtendedPropertiesHelper.cs">
-      <Link>PhoneExtendedPropertiesHelper.cs</Link>
-    </Compile>
     <Compile Include="..\XamlEssentials-NET4\SharedAssemblyInfo.cs">
       <Link>SharedAssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="..\XamlEssentials-NET4\Storage\StoredItem_T.cs">
       <Link>Storage\StoredItem_T.cs</Link>
     </Compile>
-    <Compile Include="..\XamlEssentials-WP8\ApplicationInfoHelper.cs">
-      <Link>ApplicationInfoHelper.cs</Link>
+    <Compile Include="..\XamlEssentials-WP8\Helpers\ApplicationInfoHelper.cs">
+      <Link>Helpers\ApplicationInfoHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\XamlEssentials-WP8\Helpers\PhoneExtendedPropertiesHelper.cs">
+      <Link>Helpers\PhoneExtendedPropertiesHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\XamlEssentials-WP8\Helpers\TrialExperienceHelper.cs">
+      <Link>Helpers\TrialExperienceHelper.cs</Link>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -2,7 +2,7 @@
 using System.Diagnostics;
 using System.Xml;
 
-namespace XamlEssentials
+namespace XamlEssentials.Helpers
 {
     public static class ApplicationInfoHelper
     {

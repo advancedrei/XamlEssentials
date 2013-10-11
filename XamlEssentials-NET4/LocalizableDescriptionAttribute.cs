@@ -46,30 +46,27 @@ namespace XamlEssentials
         {
             get
             {
-                if (!_isLocalized)
+                if (_isLocalized) return DescriptionValue;
+
+                var resMan = _resourcesType.InvokeMember(
+                    @"ResourceManager",
+                    BindingFlags.GetProperty | BindingFlags.Static |BindingFlags.Public | BindingFlags.NonPublic,
+                    null,
+                    null,
+                    new object[] { }) as ResourceManager;
+
+                var culture =  _resourcesType.InvokeMember(
+                    @"Culture",
+                    BindingFlags.GetProperty | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic,
+                    null,
+                    null,
+                    new object[] { }) as CultureInfo;
+
+                _isLocalized = true;
+
+                if (resMan != null)
                 {
-                    ResourceManager resMan =
-                         _resourcesType.InvokeMember(
-                         @"ResourceManager",
-                         BindingFlags.GetProperty | BindingFlags.Static |
-                         BindingFlags.Public | BindingFlags.NonPublic,
-                         null,
-                         null,
-                         new object[] { }) as ResourceManager;
-
-                    CultureInfo culture =
-                         _resourcesType.InvokeMember(
-                         @"Culture",
-                         BindingFlags.GetProperty | BindingFlags.Static |
-                         BindingFlags.Public | BindingFlags.NonPublic,
-                         null,
-                         null,
-                         new object[] { }) as CultureInfo;
-
-                    _isLocalized = true;
-
-                    if (resMan != null)
-                        DescriptionValue = resMan.GetString(DescriptionValue, culture);
+                    DescriptionValue = resMan.GetString(DescriptionValue, culture);
                 }
 
                 return DescriptionValue;

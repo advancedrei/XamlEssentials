@@ -1,11 +1,8 @@
 ﻿#if WINDOWS_PHONE
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using Microsoft.Phone.Info;
 
-namespace XamlEssentials
+namespace XamlEssentials.Helpers
 {
 
     /// <summary>

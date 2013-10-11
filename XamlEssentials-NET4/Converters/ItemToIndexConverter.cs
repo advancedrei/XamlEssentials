@@ -31,9 +31,13 @@ namespace XamlEssentials.Converters
 #endif
 )
         {
-            ListBoxItem item = (ListBoxItem)value;
-            ListBox lb = (ListBox)ItemsControl.ItemsControlFromItemContainer(item);
+            var item = (ListBoxItem)value;
+            var lb = (ListBox)ItemsControl.ItemsControlFromItemContainer(item);
+#if WINRT81
+            return lb.IndexFromContainer(item);
+#else
             return lb.ItemContainerGenerator.IndexFromContainer(item) + 1;
+#endif
         }
 
         public object ConvertBack(object value, Type targetType, object parameter,
