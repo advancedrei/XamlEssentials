@@ -62,6 +62,9 @@
     <Reference Include="System.Windows.Browser" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\XamlEssentials-NET4\Converters\BooleanToVisibilityConverter.cs">
+      <Link>Converters\BooleanToVisibilityConverter.cs</Link>
+    </Compile>
     <Compile Include="..\XamlEssentials-NET4\Converters\CollectionCountToVisibilityConverter.cs">
       <Link>Converters\CollectionCountToVisibilityConverter.cs</Link>
     </Compile>
