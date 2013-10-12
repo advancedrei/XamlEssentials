@@ -56,7 +56,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>Bin\Release</OutputPath>
+    <OutputPath>..\Build\Release\</OutputPath>
     <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
     <NoStdLib>true</NoStdLib>
     <NoConfig>true</NoConfig>
@@ -155,6 +155,9 @@
     </Compile>
     <Compile Include="..\XamlEssentials-WP8\Helpers\PhoneExtendedPropertiesHelper.cs">
       <Link>Helpers\PhoneExtendedPropertiesHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\XamlEssentials-WP8\Helpers\StatsHelper.cs">
+      <Link>Helpers\StatsHelper.cs</Link>
     </Compile>
     <Compile Include="..\XamlEssentials-WP8\Helpers\TrialExperienceHelper.cs">
       <Link>Helpers\TrialExperienceHelper.cs</Link>

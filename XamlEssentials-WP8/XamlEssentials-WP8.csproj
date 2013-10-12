@@ -33,7 +33,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>Bin\Release</OutputPath>
+    <OutputPath>..\Build\Release\</OutputPath>
     <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE;WP8</DefineConstants>
     <NoStdLib>true</NoStdLib>
     <NoConfig>true</NoConfig>
@@ -147,6 +147,8 @@
     <Compile Include="Converters\ContactImageConverter.cs" />
     <Compile Include="Extensions\ContactExtensions.cs" />
     <Compile Include="Extensions\QueryExtensions.cs" />
+    <Compile Include="Helpers\StatsHelper.cs" />
+    <Compile Include="Helpers\FeedbackState.cs" />
     <Compile Include="Helpers\PhoneExtendedPropertiesHelper.cs" />
     <Compile Include="Helpers\TrialExperienceHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
