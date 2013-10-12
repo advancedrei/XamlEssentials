@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.20623.1 VSUPREVIEW
+VisualStudioVersion = 12.0.20824.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XamlEssentials-WinRT", "XamlEssentials-WinRT\XamlEssentials-WinRT.csproj", "{DBBDC61D-0A21-4751-A3E8-866682EF4611}"
 EndProject
@@ -18,6 +18,11 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XamlEssentials-SL4", "XamlEssentials-SL4\XamlEssentials-SL4.csproj", "{BABFCD28-576D-4C11-A5BF-90BF651A9C6C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XamlEssentials-WinRT81", "XamlEssentials-WinRT81\XamlEssentials-WinRT81.csproj", "{7939B910-AFC7-44E9-A968-515F2A91974B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Misc Files", "Misc Files", "{8815DA58-AC75-4F02-AA3E-A155DCDE7AE5}"
+	ProjectSection(SolutionItems) = preProject
+		XamlEssentials.nuspec = XamlEssentials.nuspec
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

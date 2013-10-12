@@ -33,6 +33,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <GenerateLibraryLayout>True</GenerateLibraryLayout>
+    <DocumentationFile>..\Build\Release\XamlEssentials.WinRT81.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject />

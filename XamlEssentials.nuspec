@@ -1,48 +1,58 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
-    <metadata>
-        <id>XamlEssentials</id>
-        <version>3.2</version>
-        <authors>Robert McLaws</authors>
-        <owners>AdvancedREI</owners>
-        <licenseUrl>http://www.ohloh.net/licenses/mslpl</licenseUrl>
-        <projectUrl>https://github.com/advancedrei/XamlEssentials</projectUrl>
-        <requireLicenseAcceptance>false</requireLicenseAcceptance>
-        <description>A helper library of BindingConverters, MarkupExtensions, and other utilities for building XAML applications for WPF 4 &amp; 4.5, Silverlight 4 &amp; 5, Windows Phone 7.5 &amp; 8, and Windows 8.</description>
-        <summary>A library of BindingConverters, MarkupExtensions, and helpers for Microsoft's XAML platforms.</summary>
-        <releaseNotes>3.2 - Introduces the StatsHelper for aggregating app usage statistics on Windows Phone 7.5 &amp; 8.
-3.1 - Introduces the TrialExperienceHelper for Windows Phone 7.5 &amp; 8.
-3.0 - Moves the Helpers functionality to a new namespace (XamlEssentials.Helpers). Update your using statements accordingly. Also introduces the TrialExperienceHelper for Windows Phone 8. This is a modified version of the one from the Microsoft WP8 samples.
-2.3 - Introduces a ApplicationInfoHelper for WP 7.5 and 8.0 that pulls application details directly from the WMAppManifest.xml file. Also removed PDB files in anticipation of publishing to SymbolSource.org.
-2.2 - Introduces a WP8 extension from http://compiledexperience.com/blog/posts/async-geocode-query (used with permission).
-2.1.1 - Fixes PhoneExtendedPropertiesHelper to return a string instead of a byte array.
-2.1.0 - Adds StoredItem&lt;T&gt; for SL4, SL5, WP7.5, &amp; WP8, and PhoneExtendedPropertiesHelper for WP 7.5 and WP8.
-2.0.1 - Adds the StringFormatConverter to WP7.5 and WP8</releaseNotes>
-        <copyright>2011-2013 AdvancedREI, LLC.</copyright>
-        <language>en-US</language>
-        <tags>XAML, Silverlight, WinRT, Windows Phone</tags>
-        <frameworkAssemblies>
-            <frameworkAssembly assemblyName="PresentationCore" targetFramework=".NETFramework4.0" />
-            <frameworkAssembly assemblyName="PresentationCore" targetFramework=".NETFramework4.5" />
-            <frameworkAssembly assemblyName="PresentationFramework" targetFramework=".NETFramework4.0" />
-            <frameworkAssembly assemblyName="PresentationFramework" targetFramework=".NETFramework4.5" />
-            <frameworkAssembly assemblyName="System.Xaml" targetFramework=".NETFramework4.0" />
-            <frameworkAssembly assemblyName="System.Xaml" targetFramework=".NETFramework4.5" />
-            <frameworkAssembly assemblyName="WindowsBase" targetFramework=".NETFramework4.0" />
-            <frameworkAssembly assemblyName="WindowsBase" targetFramework=".NETFramework4.5" />
-        </frameworkAssemblies>
-    </metadata>
-    <files>
-        <file src="Build\Release\XamlEssentials.NET4.dll" target="lib\net40\XamlEssentials.NET4.dll" />
-        <file src="Build\Release\XamlEssentials.NET45.dll" target="lib\net45\XamlEssentials.NET45.dll" />
-        <file src="Build\Release\XamlEssentials.WinRT.dll" target="lib\netcore45\XamlEssentials.WinRT.dll" />
-        <file src="Build\Release\XamlEssentials.WinRT.pri" target="lib\netcore45\XamlEssentials.WinRT.pri" />
-        <file src="Build\Release\XamlEssentials.WinRT81.dll" target="lib\netcore451\XamlEssentials.WinRT81.dll" />
-        <file src="Build\Release\XamlEssentials.WinRT81.pri" target="lib\netcore451\XamlEssentials.WinRT81.pri" />
-        <file src="Build\Release\XamlEssentials.WP75.dll" target="lib\sl4-wp71\XamlEssentials.WP75.dll" />
-        <file src="Build\Release\XamlEssentials.SL4.dll" target="lib\sl40\XamlEssentials.SL4.xml\XamlEssentials.SL4.dll" />
-        <file src="Build\Release\XamlEssentials.SL5.dll" target="lib\sl50\XamlEssentials.SL5.dll" />
-        <file src="Build\Release\XamlEssentials.WP8.dll" target="lib\wp8\XamlEssentials.WP75.dll" />
-        <file src="README.md" target="readme.md" />
-    </files>
+  <metadata>
+    <id>XamlEssentials</id>
+    <version>3.2</version>
+    <authors>Robert McLaws</authors>
+    <owners>AdvancedREI</owners>
+    <licenseUrl>http://www.ohloh.net/licenses/mslpl</licenseUrl>
+    <projectUrl>https://github.com/advancedrei/XamlEssentials</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A helper library of BindingConverters, MarkupExtensions, and other utilities for building XAML applications for WPF 4 &amp; 4.5, Silverlight 4 &amp; 5, Windows Phone 7.5 &amp; 8, and Windows 8.</description>
+    <summary>A library of BindingConverters, MarkupExtensions, and helpers for Microsoft's XAML platforms.</summary>
+    <releaseNotes>
+      3.2 - Introduces the StatsHelper for aggregating app usage statistics on Windows Phone 7.5 &amp; 8.
+      3.1 - Introduces the TrialExperienceHelper for Windows Phone 7.5 &amp; 8.
+      3.0 - Moves the Helpers functionality to a new namespace (XamlEssentials.Helpers). Update your using statements accordingly. Also introduces the TrialExperienceHelper for Windows Phone 8. This is a modified version of the one from the Microsoft WP8 samples.
+      2.3 - Introduces a ApplicationInfoHelper for WP 7.5 and 8.0 that pulls application details directly from the WMAppManifest.xml file. Also removed PDB files in anticipation of publishing to SymbolSource.org.
+      2.2 - Introduces a WP8 extension from http://compiledexperience.com/blog/posts/async-geocode-query (used with permission).
+      2.1.1 - Fixes PhoneExtendedPropertiesHelper to return a string instead of a byte array.
+      2.1.0 - Adds StoredItem&lt;T&gt; for SL4, SL5, WP7.5, &amp; WP8, and PhoneExtendedPropertiesHelper for WP 7.5 and WP8.
+      2.0.1 - Adds the StringFormatConverter to WP7.5 and WP8
+    </releaseNotes>
+    <copyright>2011-2013 AdvancedREI, LLC.</copyright>
+    <language>en-US</language>
+    <tags>XAML, Silverlight, WinRT, Windows Phone</tags>
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="PresentationCore" targetFramework=".NETFramework4.0" />
+      <frameworkAssembly assemblyName="PresentationCore" targetFramework=".NETFramework4.5" />
+      <frameworkAssembly assemblyName="PresentationFramework" targetFramework=".NETFramework4.0" />
+      <frameworkAssembly assemblyName="PresentationFramework" targetFramework=".NETFramework4.5" />
+      <frameworkAssembly assemblyName="System.Xaml" targetFramework=".NETFramework4.0" />
+      <frameworkAssembly assemblyName="System.Xaml" targetFramework=".NETFramework4.5" />
+      <frameworkAssembly assemblyName="WindowsBase" targetFramework=".NETFramework4.0" />
+      <frameworkAssembly assemblyName="WindowsBase" targetFramework=".NETFramework4.5" />
+    </frameworkAssemblies>
+  </metadata>
+  <files>
+    <file src="Build\Release\XamlEssentials.NET4.dll" target="lib\net40\XamlEssentials.NET4.dll" />
+    <file src="Build\Release\XamlEssentials.NET4.xml" target="lib\net40\XamlEssentials.NET4.xml" />
+    <file src="Build\Release\XamlEssentials.NET45.dll" target="lib\net45\XamlEssentials.NET45.dll" />
+    <file src="Build\Release\XamlEssentials.NET45.xml" target="lib\net45\XamlEssentials.NET45.xml" />
+    <file src="Build\Release\XamlEssentials.WinRT.dll" target="lib\netcore45\XamlEssentials.WinRT.dll" />
+    <file src="Build\Release\XamlEssentials.WinRT.xml" target="lib\netcore45\XamlEssentials.WinRT.xml" />
+    <file src="Build\Release\XamlEssentials.WinRT.pri" target="lib\netcore45\XamlEssentials.WinRT.pri" />
+    <file src="Build\Release\XamlEssentials.WinRT81.dll" target="lib\netcore451\XamlEssentials.WinRT81.dll" />
+    <file src="Build\Release\XamlEssentials.WinRT81.xml" target="lib\netcore451\XamlEssentials.WinRT81.xml" />
+    <file src="Build\Release\XamlEssentials.WinRT81.pri" target="lib\netcore451\XamlEssentials.WinRT81.pri" />
+    <file src="Build\Release\XamlEssentials.SL4.dll" target="lib\sl40\XamlEssentials.SL4.dll" />
+    <file src="Build\Release\XamlEssentials.SL4.xml" target="lib\sl40\XamlEssentials.SL4.xml" />
+    <file src="Build\Release\XamlEssentials.SL5.dll" target="lib\sl50\XamlEssentials.SL5.dll" />
+    <file src="Build\Release\XamlEssentials.SL5.xml" target="lib\sl50\XamlEssentials.SL5.xml" />
+    <file src="Build\Release\XamlEssentials.WP75.dll" target="lib\sl4-wp71\XamlEssentials.WP75.dll" />
+    <file src="Build\Release\XamlEssentials.WP75.xml" target="lib\sl4-wp71\XamlEssentials.WP75.xml" />
+    <file src="Build\Release\XamlEssentials.WP8.dll" target="lib\wp8\XamlEssentials.WP8.dll" />
+    <file src="Build\Release\XamlEssentials.WP8.xml" target="lib\wp8\XamlEssentials.WP8.xml" />
+    <file src="README.md" target="readme.md" />
+  </files>
 </package>
