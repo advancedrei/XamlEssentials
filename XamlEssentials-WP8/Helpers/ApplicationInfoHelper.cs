@@ -1,9 +1,18 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Xml;
+#if WINRT
+using System.Linq;
+using System.Xml.Linq;
+using Windows.ApplicationModel;
+#endif
 
 namespace XamlEssentials.Helpers
 {
+
+    /// <summary>
+    /// 
+    /// </summary>
     public static class ApplicationInfoHelper
     {
 
@@ -45,6 +54,7 @@ namespace XamlEssentials.Helpers
             Author = string.Empty;
             Description = string.Empty;
 
+#if WINDOWS_PHONE
             try
             {
                 var settings = new XmlReaderSettings { XmlResolver = new XmlXapResolver() };
@@ -67,9 +77,26 @@ namespace XamlEssentials.Helpers
             {
                 Debug.WriteLine("An error occurred with the ApplicationInfoHelper: " + ex.Message);
             }
+#elif WINRT
+            var package = Package.Current;
+            var version = package.Id.Version;
+            Version = string.Format("{0}.{1}.{2}.{3}", version.Major, version.Minor, version.Build, version.Revision);
+#if WINRT81
+            Title = package.DisplayName;
+            Author = package.PublisherDisplayName;
+            Description = package.Description;
+#else
+            var doc = XDocument.Load("AppxManifest.xml", LoadOptions.None);
+            var xname = XNamespace.Get("http://schemas.microsoft.com/appx/2010/manifest");
+            var visualElement = doc.Descendants(xname + "VisualElements").First();
+
+            Title = doc.Descendants(xname + "DisplayName").First().Value;
+            Author = doc.Descendants(xname + "PublisherDisplayName").First().Value;
+            Description = visualElement.Attribute("Description").Value;
+#endif
+#endif
         }
 
-
-
     }
+
 }

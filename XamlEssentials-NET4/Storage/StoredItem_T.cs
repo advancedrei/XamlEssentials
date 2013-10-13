@@ -1,5 +1,9 @@
 ﻿#if SILVERLIGHT
 using System.IO.IsolatedStorage;
+#elif WINRT
+using Windows.Storage;
+#endif
+
 
 namespace XamlEssentials.Storage
 {
@@ -34,9 +38,15 @@ namespace XamlEssentials.Storage
             {
                 if (this._needRefresh)
                 {
+#if SILVERLIGHT
                     if (!IsolatedStorageSettings.ApplicationSettings.TryGetValue(this.Name, out this._value))
                     {
                         IsolatedStorageSettings.ApplicationSettings[this.Name] = this.DefaultValue;
+#elif WINRT
+                    if (!ApplicationData.Current.LocalSettings.Values.ContainsKey(this.Name))
+                    {
+                        ApplicationData.Current.LocalSettings.Values[this.Name] = this.DefaultValue;
+#endif
                         this._value = this.DefaultValue;
                     }
                     this._needRefresh = false;
@@ -50,7 +60,11 @@ namespace XamlEssentials.Storage
                     return;
 
                 // Store the value in isolated storage.
+#if SILVERLIGHT
                 IsolatedStorageSettings.ApplicationSettings[this.Name] = value;
+#elif WINRT
+                ApplicationData.Current.LocalSettings.Values[this.Name] = value;
+#endif
                 this._needRefresh = true;
             }
         }
@@ -81,10 +95,15 @@ namespace XamlEssentials.Storage
             this.DefaultValue = defaultValue;
 
             // If isolated storage doesn't have the value stored yet
-            if (!IsolatedStorageSettings.ApplicationSettings.TryGetValue(this.Name, out this._value))
-            {
-                this._value = defaultValue;
-                IsolatedStorageSettings.ApplicationSettings[this.Name] = defaultValue;
+#if SILVERLIGHT
+                    if (!IsolatedStorageSettings.ApplicationSettings.TryGetValue(this.Name, out this._value))
+                    {
+                        IsolatedStorageSettings.ApplicationSettings[this.Name] = this.DefaultValue;
+#elif WINRT
+                    if (!ApplicationData.Current.LocalSettings.Values.ContainsKey(this.Name))
+                    {
+                        ApplicationData.Current.LocalSettings.Values[this.Name] = this.DefaultValue;
+#endif
             }
 
             this._needRefresh = false;
@@ -113,6 +132,3 @@ namespace XamlEssentials.Storage
 
     }
 }
-
-
-#endif

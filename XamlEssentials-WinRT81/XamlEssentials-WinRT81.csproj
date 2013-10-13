@@ -29,7 +29,7 @@
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>..\Build\Release\</OutputPath>
-    <DefineConstants>TRACE;WINRT</DefineConstants>
+    <DefineConstants>TRACE;WINRT, WINRT81</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <GenerateLibraryLayout>True</GenerateLibraryLayout>
@@ -40,7 +40,6 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
-    <Folder Include="Helpers\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\XamlEssentials-NET4\Converters\CollectionCountToVisibilityConverter.cs">
@@ -87,6 +86,15 @@
     </Compile>
     <Compile Include="..\XamlEssentials-NET4\SharedAssemblyInfo.cs">
       <Link>SharedAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\XamlEssentials-NET4\Storage\StoredItem_T.cs">
+      <Link>Storage\StoredItem_T.cs</Link>
+    </Compile>
+    <Compile Include="..\XamlEssentials-WP8\Helpers\ApplicationInfoHelper.cs">
+      <Link>Helpers\ApplicationInfoHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\XamlEssentials-WP8\Helpers\StatsHelper.cs">
+      <Link>Helpers\StatsHelper.cs</Link>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

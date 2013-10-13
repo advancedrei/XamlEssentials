@@ -2,6 +2,9 @@
 using System.Diagnostics;
 using System.Windows;
 using XamlEssentials.Storage;
+#if WINRT
+using Windows.UI.Xaml;
+#endif
 
 namespace XamlEssentials.Helpers
 {
@@ -29,6 +32,8 @@ namespace XamlEssentials.Helpers
 
         #region Properties
 
+        #region CurrentVersion
+
         /// <summary>
         /// The currently-executing version of the app, as stored by the <see cref="StatsHelper"/> .
         /// </summary>
@@ -42,6 +47,10 @@ namespace XamlEssentials.Helpers
             }
             set { _currentVersion.Value = value; }
         }
+
+        #endregion
+
+        #region CurrentVersionExceptionCount
 
         /// <summary>
         /// The number of exceptions that have been recorded for the <see cref="CurrentVersion"/>.
@@ -57,6 +66,10 @@ namespace XamlEssentials.Helpers
             set { _currentVersionExceptionCount.Value = value; }
         }
 
+        #endregion
+
+        #region CurrentVersionInstallDate
+
         /// <summary>
         /// The date the <see cref="CurrentVersion"/> was installed.
         /// </summary>
@@ -69,6 +82,10 @@ namespace XamlEssentials.Helpers
             }
             set { _currentVersionInstallDate.Value = value; }
         }
+
+        #endregion
+
+        #region CurrentVersionRunCount
 
         /// <summary>
         /// The number of times the <see cref="CurrentVersion"/> has run since installation.
@@ -83,6 +100,10 @@ namespace XamlEssentials.Helpers
             set { _currentVersionRunCount.Value = value; }
         }
 
+        #endregion
+
+        #region InitialVersion
+
         /// <summary>
         /// The version of this app that was initially installed on the system.
         /// </summary>
@@ -95,6 +116,10 @@ namespace XamlEssentials.Helpers
             }
             set { _initialVersion.Value = value; }
         }
+
+        #endregion
+
+        #region InitialVersionInstallDate
 
         /// <summary>
         /// The date this app was initially installed on the system.
@@ -109,6 +134,10 @@ namespace XamlEssentials.Helpers
             set { _initialVersionInstallDate.Value = value; }
         }
 
+        #endregion
+
+        #region LastRunDate
+
         /// <summary>
         /// The date the app was last run.
         /// </summary>
@@ -121,6 +150,10 @@ namespace XamlEssentials.Helpers
             }
             set { _lastRunDate.Value = value; }
         }
+
+        #endregion
+
+        #region TotalExceptionCount
 
         /// <summary>
         /// The total number of exceptions that have ever been recorded for this application.
@@ -136,6 +169,9 @@ namespace XamlEssentials.Helpers
             set { _totalExceptionCount.Value = value; }
         }
 
+        #endregion
+
+        #region TotalRunCount
 
         /// <summary>
         /// The number of times this app has run since <see cref="InitialVersionInstallDate"/>.
@@ -149,6 +185,8 @@ namespace XamlEssentials.Helpers
             }
             set { _totalRunCount.Value = value; }
         }
+
+        #endregion
 
         #endregion
 
@@ -199,7 +237,16 @@ namespace XamlEssentials.Helpers
 
         #region Event Handlers
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+#if WINDOWS_PHONE
         public static void RecordUnhandledException(object sender, ApplicationUnhandledExceptionEventArgs e)
+#elif WINRT
+        public static void RecordUnhandledException(object sender, UnhandledExceptionEventArgs e)
+#endif
         {
             e.Handled = true;
             if (Debugger.IsAttached) return;
