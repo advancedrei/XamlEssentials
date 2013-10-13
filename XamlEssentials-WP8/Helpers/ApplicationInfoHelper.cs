@@ -54,9 +54,10 @@ namespace XamlEssentials.Helpers
             Author = string.Empty;
             Description = string.Empty;
 
-#if WINDOWS_PHONE
+
             try
             {
+#if WINDOWS_PHONE
                 var settings = new XmlReaderSettings { XmlResolver = new XmlXapResolver() };
 
                 using (var rdr = XmlReader.Create(AppManifestName, settings))
@@ -72,11 +73,6 @@ namespace XamlEssentials.Helpers
                     Author = rdr.GetAttribute("Author");
                     Description = rdr.GetAttribute("Description");
                 }
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine("An error occurred with the ApplicationInfoHelper: " + ex.Message);
-            }
 #elif WINRT
             var package = Package.Current;
             var version = package.Id.Version;
@@ -94,7 +90,14 @@ namespace XamlEssentials.Helpers
             Author = doc.Descendants(xname + "PublisherDisplayName").First().Value;
             Description = visualElement.Attribute("Description").Value;
 #endif
+
 #endif
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("An error occurred with the ApplicationInfoHelper: " + ex.Message);
+            }
+
         }
 
     }
