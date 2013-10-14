@@ -197,6 +197,7 @@ namespace XamlEssentials.Helpers
         /// </summary>
         public static void Initialize()
         {
+            IsInitialized = true;
             if (CurrentVersion == ApplicationInfoHelper.Version)
             {
                 CurrentVersionRunCount++;
@@ -209,7 +210,6 @@ namespace XamlEssentials.Helpers
             }
             TotalRunCount++;
             LastRunDate = DateTime.UtcNow;
-            IsInitialized = true;
             Application.Current.UnhandledException += RecordUnhandledException;
         }
 
