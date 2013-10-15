@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Diagnostics;
-using System.Windows;
 using XamlEssentials.Storage;
-#if WINRT
+#if WINDOWS_PHONE
+using System.Windows;
+#elif WINRT
 using Windows.UI.Xaml;
 #endif
 
@@ -26,7 +27,9 @@ namespace XamlEssentials.Helpers
         private static readonly StoredItem<long> _totalExceptionCount = new StoredItem<long>("totalExceptionCount", 0);
         private static readonly StoredItem<long> _totalRunCount = new StoredItem<long>("totalRunCount", 0);
         private static readonly StoredItem<DateTime> _lastRunDate = new StoredItem<DateTime>("lastRunDate", DateTime.Now);
+        private static readonly StoredItem<DateTime> _lastCleanShutdownDate = new StoredItem<DateTime>("lastCleanShutdownDate", DateTime.Now);
         internal static bool IsInitialized = false;
+        internal static bool IsInitializing = false;
 
         #endregion
 
@@ -136,6 +139,23 @@ namespace XamlEssentials.Helpers
 
         #endregion
 
+        #region LastCleanShutdownDate
+
+        /// <summary>
+        /// The date the app was last started, run, and shutdown without error.
+        /// </summary>
+        public static DateTime LastCleanShutdownDate
+        {
+            get
+            {
+                CheckIsInitialized();
+                return _lastCleanShutdownDate.Value;
+            }
+            set { _lastCleanShutdownDate.Value = value; }
+        }
+
+        #endregion
+
         #region LastRunDate
 
         /// <summary>
@@ -197,7 +217,7 @@ namespace XamlEssentials.Helpers
         /// </summary>
         public static void Initialize()
         {
-            IsInitialized = true;
+            IsInitializing = true;
             if (CurrentVersion == ApplicationInfoHelper.Version)
             {
                 CurrentVersionRunCount++;
@@ -211,6 +231,8 @@ namespace XamlEssentials.Helpers
             TotalRunCount++;
             LastRunDate = DateTime.UtcNow;
             Application.Current.UnhandledException += RecordUnhandledException;
+            IsInitializing = false;
+            IsInitialized = true;
         }
 
         /// <summary>
@@ -219,6 +241,7 @@ namespace XamlEssentials.Helpers
         public static void TearDown()
         {
             Application.Current.UnhandledException -= RecordUnhandledException;
+            LastCleanShutdownDate = DateTime.UtcNow;
         }
 
         #endregion
@@ -227,6 +250,7 @@ namespace XamlEssentials.Helpers
 
         private static void CheckIsInitialized()
         {
+            if (IsInitializing) return;
             if (!IsInitialized)
             {
                 throw new InvalidOperationException("The XamlEssentials StatsHelper is not initialized. Please call the Initialize() method in the constructor for App.cs or App.vb.");
