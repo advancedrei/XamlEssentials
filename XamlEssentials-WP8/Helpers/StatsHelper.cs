@@ -217,6 +217,9 @@ namespace XamlEssentials.Helpers
         /// </summary>
         public static void Initialize()
         {
+            //RWM: Check to make sure some other implementing framework (like AppSupport)
+            //     has not already initialized this helper.
+            if (IsInitialized || IsInitializing) return;
             IsInitializing = true;
             if (CurrentVersion == ApplicationInfoHelper.Version)
             {
