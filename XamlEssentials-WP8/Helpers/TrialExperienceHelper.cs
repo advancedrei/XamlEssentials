@@ -11,6 +11,8 @@
     Modified by Robert McLaws.
 */
 
+#if !WP71
+
 using System.Diagnostics;
 using Windows.ApplicationModel.Store;
 using Microsoft.Phone.Shell;
@@ -164,3 +166,4 @@ namespace XamlEssentials.Helpers
 
     }
 }
+#endif
