@@ -275,7 +275,7 @@ namespace XamlEssentials.Helpers
         public static void RecordUnhandledException(object sender, UnhandledExceptionEventArgs e)
 #endif
         {
-            e.Handled = true;
+            e.Handled = false;
             if (Debugger.IsAttached) return;
             CurrentVersionExceptionCount++;
             TotalExceptionCount++;
