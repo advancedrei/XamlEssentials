@@ -88,6 +88,12 @@
     <Compile Include="..\XamlEssentials-NET4\Storage\StoredItem_T.cs">
       <Link>Storage\StoredItem_T.cs</Link>
     </Compile>
+    <Compile Include="..\XamlEssentials-WP8\AsyncExceptionEventArgs.cs">
+      <Link>AsyncExceptionEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\XamlEssentials-WP8\AsynchronizationContext.cs">
+      <Link>AsynchronizationContext.cs</Link>
+    </Compile>
     <Compile Include="..\XamlEssentials-WP8\Helpers\ApplicationInfoHelper.cs">
       <Link>Helpers\ApplicationInfoHelper.cs</Link>
     </Compile>

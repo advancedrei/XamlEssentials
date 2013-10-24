@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.20824.1
+VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XamlEssentials-WinRT", "XamlEssentials-WinRT\XamlEssentials-WinRT.csproj", "{DBBDC61D-0A21-4751-A3E8-866682EF4611}"
 EndProject
@@ -21,6 +21,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Misc Files", "Misc Files", 
 	ProjectSection(SolutionItems) = preProject
 		XamlEssentials.nuspec = XamlEssentials.nuspec
 	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{8BEB5FCB-F172-4EA8-BD7C-F11C0674D28E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{2C70546C-CD2B-4EB2-B74C-A937E6648E57}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{D79987C4-B6DE-4805-8DFB-0EC08EAEA29A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -95,5 +101,14 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{42C48EFB-725E-4648-8DDD-07D72CF14D35} = {D79987C4-B6DE-4805-8DFB-0EC08EAEA29A}
+		{57F77F5C-D59D-4423-B41F-16F8530F6604} = {D79987C4-B6DE-4805-8DFB-0EC08EAEA29A}
+		{BABFCD28-576D-4C11-A5BF-90BF651A9C6C} = {D79987C4-B6DE-4805-8DFB-0EC08EAEA29A}
+		{35149C24-46A0-434F-94BD-AC54CCE43683} = {D79987C4-B6DE-4805-8DFB-0EC08EAEA29A}
+		{DBBDC61D-0A21-4751-A3E8-866682EF4611} = {D79987C4-B6DE-4805-8DFB-0EC08EAEA29A}
+		{7939B910-AFC7-44E9-A968-515F2A91974B} = {D79987C4-B6DE-4805-8DFB-0EC08EAEA29A}
+		{4819C003-7316-439A-9FF1-1F075CC55422} = {D79987C4-B6DE-4805-8DFB-0EC08EAEA29A}
 	EndGlobalSection
 EndGlobal

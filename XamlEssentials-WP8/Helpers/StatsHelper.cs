@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Threading.Tasks;
 using XamlEssentials.Storage;
 #if WINDOWS_PHONE
 using System.Windows;
@@ -11,7 +12,7 @@ namespace XamlEssentials.Helpers
 {
 
     /// <summary>
-    /// This tool helps gather 
+    /// This tool helps gather information about the lifecycle of an application. For example, how many times the current version has crashed, or when it was first installed.
     /// </summary>
     public static class StatsHelper
     {
@@ -28,6 +29,8 @@ namespace XamlEssentials.Helpers
         private static readonly StoredItem<long> _totalRunCount = new StoredItem<long>("totalRunCount", 0);
         private static readonly StoredItem<DateTime> _lastRunDate = new StoredItem<DateTime>("lastRunDate", DateTime.Now);
         private static readonly StoredItem<DateTime> _lastCleanShutdownDate = new StoredItem<DateTime>("lastCleanShutdownDate", DateTime.Now);
+        private static bool _markExceptionsAsHandled = false;
+        private static bool _handleAsyncExceptions = false;
         internal static bool IsInitialized = false;
         internal static bool IsInitializing = false;
 
@@ -213,14 +216,38 @@ namespace XamlEssentials.Helpers
         #region Public Methods
 
         /// <summary>
-        /// Should be called whenever the app is first run, as early as possible.
+        /// Starts tracking application lifecycle statistics.
         /// </summary>
-        public static void Initialize()
+        /// <param name="handleAsyncExceptions">
+        /// This specifies whether the default SynchronizationContext should be replaced with one that can handle exceptions in "async void" methods.
+        /// The default is True.
+        /// <remarks>Ignored on Windows 8.1, as the built-in SynchronizationContext already handles "async void" exceptions.</remarks>
+        /// </param>
+        /// <param name="markExceptionsAsHandled">
+        /// Specifies whether exception processing should stop after the counters record their information. 
+        /// Default is False, should usually stay that way.
+        /// </param>
+        /// <remarks>Should be called whenever the app is first run, only once and as early as possible.</remarks>
+        public static void Initialize(bool handleAsyncExceptions = true, bool markExceptionsAsHandled = false)
         {
             //RWM: Check to make sure some other implementing framework (like AppSupport)
             //     has not already initialized this helper.
             if (IsInitialized || IsInitializing) return;
             IsInitializing = true;
+            _markExceptionsAsHandled = markExceptionsAsHandled;
+            _handleAsyncExceptions = handleAsyncExceptions;
+
+#if !WINRT81
+            if (handleAsyncExceptions)
+            {
+                AsynchronizationContext.Register();
+                AsynchronizationContext.AsyncException += AsyncException;
+            }
+#endif
+            TaskScheduler.UnobservedTaskException += UnobservedTaskException;
+            Application.Current.UnhandledException += RecordUnhandledException;
+
+
             if (CurrentVersion == ApplicationInfoHelper.Version)
             {
                 CurrentVersionRunCount++;
@@ -233,7 +260,6 @@ namespace XamlEssentials.Helpers
             }
             TotalRunCount++;
             LastRunDate = DateTime.UtcNow;
-            Application.Current.UnhandledException += RecordUnhandledException;
             IsInitializing = false;
             IsInitialized = true;
         }
@@ -243,6 +269,13 @@ namespace XamlEssentials.Helpers
         /// </summary>
         public static void TearDown()
         {
+#if !WINRT81
+            if (_handleAsyncExceptions)
+            {
+                AsynchronizationContext.AsyncException -= AsyncException;
+            }
+#endif
+            TaskScheduler.UnobservedTaskException -= UnobservedTaskException;
             Application.Current.UnhandledException -= RecordUnhandledException;
             LastCleanShutdownDate = DateTime.UtcNow;
         }
@@ -251,6 +284,10 @@ namespace XamlEssentials.Helpers
 
         #region Private Methods
 
+        /// <summary>
+        /// Checks to see if the Statshelper has been fully-initialized.
+        /// </summary>
+        /// <remarks>Short-circuits if the StatsHelper is currently in the process of initializing, so as to not throw exceptions.</remarks>
         private static void CheckIsInitialized()
         {
             if (IsInitializing) return;
@@ -260,26 +297,44 @@ namespace XamlEssentials.Helpers
             }
         }
 
-        #endregion
-
-        #region Event Handlers
-
         /// <summary>
-        /// 
+        /// Increments the internal exception counters.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-#if WINDOWS_PHONE
-        public static void RecordUnhandledException(object sender, ApplicationUnhandledExceptionEventArgs e)
-#elif WINRT
-        public static void RecordUnhandledException(object sender, UnhandledExceptionEventArgs e)
-#endif
+        private static void IncrementExceptionCounters()
         {
-            e.Handled = false;
             if (Debugger.IsAttached) return;
             CurrentVersionExceptionCount++;
             TotalExceptionCount++;
         }
+
+        #endregion
+
+        #region Event Handlers
+
+#if WINDOWS_PHONE
+        private static void RecordUnhandledException(object sender, ApplicationUnhandledExceptionEventArgs e)
+#elif WINRT
+        private static void RecordUnhandledException(object sender, UnhandledExceptionEventArgs e)
+#endif
+        {
+            e.Handled = _markExceptionsAsHandled;
+            IncrementExceptionCounters();
+        }
+
+        private static void UnobservedTaskException(object sender, UnobservedTaskExceptionEventArgs e)
+        {
+            if (_markExceptionsAsHandled) e.SetObserved();
+            IncrementExceptionCounters();
+        }
+
+#if !WINRT81
+        private static void AsyncException(object sender, AsyncExceptionEventArgs e)
+        {
+            e.Handled = _markExceptionsAsHandled;
+            IncrementExceptionCounters();
+            //if (!_markExceptionsAsHandled) throw e.Exception;
+        }
+#endif
 
         #endregion
 

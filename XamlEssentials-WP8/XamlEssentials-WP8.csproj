@@ -144,10 +144,14 @@
     <Compile Include="..\XamlEssentials-NET4\Storage\StoredItem_T.cs">
       <Link>Storage\StoredItem_T.cs</Link>
     </Compile>
+    <Compile Include="AsyncExceptionEventArgs.cs" />
+    <Compile Include="AsynchronizationContext.cs" />
+    <Compile Include="DisplayResolutions.cs" />
     <Compile Include="Helpers\ApplicationInfoHelper.cs" />
     <Compile Include="Converters\ContactImageConverter.cs" />
     <Compile Include="Extensions\ContactExtensions.cs" />
     <Compile Include="Extensions\QueryExtensions.cs" />
+    <Compile Include="Helpers\DisplayHelper.cs" />
     <Compile Include="Helpers\StatsHelper.cs" />
     <Compile Include="Helpers\FeedbackState.cs" />
     <Compile Include="Helpers\PhoneExtendedPropertiesHelper.cs" />
