@@ -1,8 +1,13 @@
 ﻿using System;
 using System.Threading;
-#if WINRT
+#if WINDOWS_PHONE
+using System.Windows.Controls;
+#elif WINRT
+using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml;
 #endif
+using System.Windows;
+
 
 namespace XamlEssentials
 {
@@ -66,6 +71,8 @@ namespace XamlEssentials
 
             customContext = new AsynchronizationContext(syncContext);
             SetSynchronizationContext(customContext);
+
+            var newContext = Current;
 
             return customContext;
         }
@@ -150,6 +157,33 @@ namespace XamlEssentials
         }
 
         #endregion
+
+        /// <summary>
+        /// Links the synchronization context to the specified frame
+        /// and ensures that it is still in use after each navigation event
+        /// </summary>
+        /// <param name="rootFrame"></param>
+        /// <returns></returns>
+        public static AsynchronizationContext RegisterForFrame(Frame rootFrame)
+        {
+            if (rootFrame == null)
+                throw new ArgumentNullException("rootFrame");
+
+            var synchronizationContext = Register();
+
+            rootFrame.Navigating += (sender, args) => EnsureContext(synchronizationContext);
+            rootFrame.Loaded += (sender, args) => EnsureContext(synchronizationContext);
+
+            return synchronizationContext;
+        }
+
+
+        private static void EnsureContext(SynchronizationContext context)
+        {
+            if (Current != context)
+                SetSynchronizationContext(context);
+        }
+
 
     }
 

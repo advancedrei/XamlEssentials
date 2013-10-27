@@ -21,6 +21,18 @@ namespace XamlEssentials.Helpers
         #region Properties
 
         /// <summary>
+        /// Specifies whether this phone has GDR3 or later installed.
+        /// </summary>
+        public static bool HasGdr3
+        {
+            get
+            {
+                return Environment.OSVersion.Version >= Gdr3Version;
+            }
+        }
+
+
+        /// <summary>
         /// Gets the current GDR version currently installed on a Windows Phone 8 device.
         /// </summary>
         public static WindowsPhone8Versions InstalledGdrVersion
@@ -46,7 +58,7 @@ namespace XamlEssentials.Helpers
         {
             get
             {
-                if (InstalledGdrVersion != WindowsPhone8Versions.GDR3) return _isBatterySaverActive;
+                if (!HasGdr3) return _isBatterySaverActive;
 
                 var powerManagerType = typeof(Windows.Phone.System.Power.PowerManager);
                 var powerSavingModeEnabledProperty = powerManagerType.GetProperty("PowerSavingModeEnabled");

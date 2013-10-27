@@ -237,7 +237,7 @@ namespace XamlEssentials.Helpers
             _markExceptionsAsHandled = markExceptionsAsHandled;
             _handleAsyncExceptions = handleAsyncExceptions;
 
-#if !WINRT81
+#if false
             if (handleAsyncExceptions)
             {
                 AsynchronizationContext.Register();
@@ -269,7 +269,7 @@ namespace XamlEssentials.Helpers
         /// </summary>
         public static void TearDown()
         {
-#if !WINRT81
+#if false
             if (_handleAsyncExceptions)
             {
                 AsynchronizationContext.AsyncException -= AsyncException;
@@ -327,7 +327,7 @@ namespace XamlEssentials.Helpers
             IncrementExceptionCounters();
         }
 
-#if !WINRT81
+#if false
         private static void AsyncException(object sender, AsyncExceptionEventArgs e)
         {
             e.Handled = _markExceptionsAsHandled;

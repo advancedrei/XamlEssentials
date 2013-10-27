@@ -1,12 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>XamlEssentials</id>
-        <version>3.3-RC2</version>
+        <version>3.3</version>
         <authors>Robert McLaws</authors>
         <owners>AdvancedREI</owners>
         <licenseUrl>http://www.ohloh.net/licenses/mslpl</licenseUrl>
         <projectUrl>https://github.com/advancedrei/XamlEssentials</projectUrl>
+        <iconUrl>https://advancedrei.blob.core.windows.net/nuget/XamlEssentials.png</iconUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>A helper library of BindingConverters, MarkupExtensions, and other utilities for building XAML applications for WPF 4 &amp; 4.5, Silverlight 4 &amp; 5, Windows Phone 7.5 &amp; 8, and Windows 8.x.</description>
         <summary>A library of BindingConverters, MarkupExtensions, and helpers for Microsoft's XAML platforms.</summary>

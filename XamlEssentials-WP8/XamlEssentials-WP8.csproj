@@ -67,7 +67,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>Bin\ARM\Debug</OutputPath>
-    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;SILVERLIGHT;WINDOWS_PHONE; WP8</DefineConstants>
     <NoStdLib>true</NoStdLib>
     <NoConfig>true</NoConfig>
     <ErrorReport>prompt</ErrorReport>
@@ -77,7 +77,7 @@
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>Bin\ARM\Release</OutputPath>
-    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE; WP8</DefineConstants>
     <NoStdLib>true</NoStdLib>
     <NoConfig>true</NoConfig>
     <ErrorReport>prompt</ErrorReport>
@@ -144,8 +144,6 @@
     <Compile Include="..\XamlEssentials-NET4\Storage\StoredItem_T.cs">
       <Link>Storage\StoredItem_T.cs</Link>
     </Compile>
-    <Compile Include="AsyncExceptionEventArgs.cs" />
-    <Compile Include="AsynchronizationContext.cs" />
     <Compile Include="DisplayResolutions.cs" />
     <Compile Include="Extensions\ShellToastExtensions.cs" />
     <Compile Include="WindowsPhone8Versions.cs" />

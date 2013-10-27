@@ -38,8 +38,17 @@
   <PropertyGroup>
     <StartupObject />
   </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>..\XamlEssentials.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
+    <None Include="..\XamlEssentials.snk">
+      <Link>XamlEssentials.snk</Link>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\XamlEssentials-NET4\Converters\CollectionCountToVisibilityConverter.cs">
