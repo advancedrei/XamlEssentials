@@ -30,7 +30,7 @@ namespace XMicrosoft.Phone.Shell
         /// </remarks>
         public static void ShowWithSound(this ShellToast toast, string soundFileUri)
         {
-            if (PhoneVersionHelper.InstalledGdrVersion == WindowsPhone8Versions.GDR3)
+            if (PhoneVersionHelper.HasGdr3)
             {
                 SetProperty(toast, "Sound", new Uri(soundFileUri, UriKind.RelativeOrAbsolute));
             }
