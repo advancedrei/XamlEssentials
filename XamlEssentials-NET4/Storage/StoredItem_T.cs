@@ -59,13 +59,7 @@ namespace XamlEssentials.Storage
                 if (this._value.Equals(value))
                     return;
 
-                // Store the value in isolated storage.
-#if SILVERLIGHT
-                IsolatedStorageSettings.ApplicationSettings[this.Name] = value;
-#elif WINRT
-                ApplicationData.Current.LocalSettings.Values[this.Name] = value;
-#endif
-                this._needRefresh = true;
+                ForceSave();
             }
         }
 
@@ -126,6 +120,21 @@ namespace XamlEssentials.Storage
         public void ForceRefresh()
         {
             this._needRefresh = true;
+        }
+
+        /// <summary>
+        /// Allows you to Force-Commit the Value to IsolatedStorage. Useful if your Value is a list that is being manipulated.
+        /// </summary>
+        public void ForceSave()
+        {
+            //RWM: Make sure when we get the Value that it doesn't pull from IsolatedStorage.
+            _needRefresh = false;
+#if SILVERLIGHT
+            IsolatedStorageSettings.ApplicationSettings[this.Name] = Value;
+#elif WINRT
+            ApplicationData.Current.LocalSettings.Values[this.Name] = Value;
+#endif
+            _needRefresh = true;
         }
 
         #endregion
