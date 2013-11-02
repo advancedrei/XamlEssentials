@@ -1,4 +1,5 @@
-﻿#if SILVERLIGHT
+﻿using System.Reflection;
+#if SILVERLIGHT
 using System.IO.IsolatedStorage;
 #elif WINRT
 using Windows.Storage;
@@ -100,7 +101,7 @@ namespace XamlEssentials.Storage
 #endif
             }
 
-            this._needRefresh = false;
+            this._needRefresh = true;
         }
 
         /// <summary>

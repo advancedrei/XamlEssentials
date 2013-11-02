@@ -7,6 +7,7 @@ using System.Windows.Controls;
 using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
+using XamlEssentials.Storage;
 using XamlEssentials.WP8.Tests.Resources;
 using System.Threading;
 using Microsoft.VisualStudio.TestPlatform.Core;
@@ -18,6 +19,10 @@ namespace XamlEssentials.WP8.Tests
 {
     public partial class MainPage : PhoneApplicationPage
     {
+
+
+        public static readonly StoredItem<List<long>> ReadItemIds = new StoredItem<List<long>>("readItemIds", new List<long> { 0 });
+
         // Constructor
         public MainPage()
         {
