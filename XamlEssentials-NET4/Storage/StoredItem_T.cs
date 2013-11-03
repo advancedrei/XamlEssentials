@@ -60,6 +60,8 @@ namespace XamlEssentials.Storage
                 if (this._value.Equals(value))
                     return;
 
+                this._value = value;
+
                 ForceSave();
             }
         }
@@ -131,9 +133,9 @@ namespace XamlEssentials.Storage
             //RWM: Make sure when we get the Value that it doesn't pull from IsolatedStorage.
             _needRefresh = false;
 #if SILVERLIGHT
-            IsolatedStorageSettings.ApplicationSettings[this.Name] = Value;
+            IsolatedStorageSettings.ApplicationSettings[this.Name] = _value;
 #elif WINRT
-            ApplicationData.Current.LocalSettings.Values[this.Name] = Value;
+            ApplicationData.Current.LocalSettings.Values[this.Name] = _value;
 #endif
             _needRefresh = true;
         }

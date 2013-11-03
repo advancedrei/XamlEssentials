@@ -144,6 +144,8 @@
     <Compile Include="..\XamlEssentials-NET4\Storage\StoredItem_T.cs">
       <Link>Storage\StoredItem_T.cs</Link>
     </Compile>
+    <Compile Include="AsyncExceptionEventArgs.cs" />
+    <Compile Include="AsynchronizationContext.cs" />
     <Compile Include="DisplayResolutions.cs" />
     <Compile Include="Extensions\ShellToastExtensions.cs" />
     <Compile Include="WindowsPhone8Versions.cs" />

@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>XamlEssentials</id>
-        <version>3.3.1</version>
+        <version>3.3.3</version>
         <authors>Robert McLaws</authors>
         <owners>AdvancedREI</owners>
         <licenseUrl>http://www.ohloh.net/licenses/mslpl</licenseUrl>
@@ -11,7 +11,7 @@
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>A helper library of BindingConverters, MarkupExtensions, and other utilities for building XAML applications for WPF 4 &amp; 4.5, Silverlight 4 &amp; 5, Windows Phone 7.5 &amp; 8, and Windows 8.x.</description>
         <summary>A library of BindingConverters, MarkupExtensions, and helpers for Microsoft's XAML platforms.</summary>
-        <releaseNotes>3.3.1 - Added StoredItem.ForceSave();
+        <releaseNotes>3.3.3 - Added StoredItem.ForceSave();
 3.3 - New DisplayHelper for supporting Nokia phablets. New PhoneVersionHelper to detect GDRs. ShellToast.ShowWithSound() extension for GDR3 musical toast. Added AsynchronizationContext from MarkerMetro for WP 7.5, 8, and Windows 8.0. Updated StatsHelper to catch more exceptions on all platforms.
 3.2.1 - Re-added support for Windows Phone 7.5.
 3.2 - StatsHelper for getting runtime usage stats on Windows Store and Windows Phone apps. Windows Store support for StoredItem and ApplicationInfoHelper.
