@@ -88,9 +88,9 @@ namespace XamlEssentials.Helpers
         }
 
         /// <summary>
-        /// 
+        /// Retrieves the resolution the system is currently displaying at.
         /// </summary>
-        /// <exception cref="InvalidOperationException"></exception>
+        /// <exception cref="InvalidOperationException">Is thrown if the resolution does not match any of the known options.</exception>
         /// <remarks>
         /// Adapted from http://developer.nokia.com/Resources/Library/Lumia/#!optimising-for-nokia-phablets/resolution-specific-considerations.html
         /// </remarks>

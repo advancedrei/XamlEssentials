@@ -1,13 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
-using Microsoft.Phone.Shell;
-using XamlEssentials.Example.WP8.Resources;
+using XamlEssentials.Helpers;
 using XamlEssentials.Storage;
 
 namespace XamlEssentials.Example.WP8
@@ -26,6 +21,12 @@ namespace XamlEssentials.Example.WP8
             // Sample code to localize the ApplicationBar
             //BuildLocalizedApplicationBar();
             var test = ReadItemIds.Value;
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            BetaExperienceHelper.CheckExpiration(DateTime.Now.AddDays(-1));
+            //BetaExperienceHelper.CheckExpiration(CalculateFrom.FirstVersion, 90);
         }
 
         // Sample code for building a localized ApplicationBar

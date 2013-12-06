@@ -135,6 +135,9 @@
     <Compile Include="..\XamlEssentials-NET4\Converters\TypeComparisonToVisibilityConverter.cs">
       <Link>Converters\TypeComparisonToVisibilityConverter.cs</Link>
     </Compile>
+    <Compile Include="..\XamlEssentials-NET4\Extensions\FrameworkElementExtensions.cs">
+      <Link>Extensions\FrameworkElementExtensions.cs</Link>
+    </Compile>
     <Compile Include="..\XamlEssentials-NET4\LocalizableDescriptionAttribute.cs">
       <Link>LocalizableDescriptionAttribute.cs</Link>
     </Compile>
@@ -148,6 +151,9 @@
     <Compile Include="AsynchronizationContext.cs" />
     <Compile Include="DisplayResolutions.cs" />
     <Compile Include="Extensions\ShellToastExtensions.cs" />
+    <Compile Include="Helpers\BetaExperienceHelper.cs" />
+    <Compile Include="Helpers\CalculateFrom.cs" />
+    <Compile Include="Helpers\EncryptionHelper.cs" />
     <Compile Include="WindowsPhone8Versions.cs" />
     <Compile Include="Helpers\ApplicationInfoHelper.cs" />
     <Compile Include="Converters\ContactImageConverter.cs" />

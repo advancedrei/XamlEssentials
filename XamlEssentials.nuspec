@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>XamlEssentials</id>
-        <version>3.3.3</version>
+        <version>3.4</version>
         <authors>Robert McLaws</authors>
         <owners>AdvancedREI</owners>
         <licenseUrl>http://www.ohloh.net/licenses/mslpl</licenseUrl>

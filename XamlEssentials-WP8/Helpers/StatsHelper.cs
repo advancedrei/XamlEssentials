@@ -288,7 +288,7 @@ namespace XamlEssentials.Helpers
         /// Checks to see if the StatsHelper has been fully-initialized.
         /// </summary>
         /// <remarks>Short-circuits if the StatsHelper is currently in the process of initializing, so as to not throw exceptions.</remarks>
-        private static void CheckIsInitialized()
+        internal static void CheckIsInitialized()
         {
             if (IsInitializing) return;
             if (!IsInitialized)

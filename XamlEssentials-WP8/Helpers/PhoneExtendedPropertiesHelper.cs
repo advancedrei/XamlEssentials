@@ -14,6 +14,7 @@ namespace XamlEssentials.Helpers
     /// </remarks>
     public static class PhoneExtendedPropertiesHelper
     {
+
         #region Private Members
 
         private const int AnidLength = 32;
@@ -21,9 +22,14 @@ namespace XamlEssentials.Helpers
 
         #endregion
 
-        //Note: to get a result requires ID_CAP_IDENTITY_DEVICE
-        // to be added to the capabilities of the WMAppManifest
-        // this will then warn users in marketplace
+        /// <summary>
+        /// Gets the unique ID for the device.
+        /// </summary>
+        /// <returns>A string containing the unique ID for the device.</returns>
+        /// <remarks>
+        /// This requires ID_CAP_IDENTITY_DEVICE to be set in the Manifest. This in turn will 
+        /// trigger a warning to the user when installing from the Store.
+        /// </remarks>
         public static string GetDeviceUniqueId()
         {
             byte[] result = null;
@@ -34,9 +40,15 @@ namespace XamlEssentials.Helpers
             return result != null ? Convert.ToBase64String(result) : "";
         }
 
-        // NOTE: to get a result requires ID_CAP_IDENTITY_USER
-        //  to be added to the capabilities of the WMAppManifest
-        // this will then warn users in marketplace
+        /// <summary>
+        /// Gets the anonymous ID for the user's primary Windows Live account.
+        /// </summary>
+        /// <returns>A string containing the anonymous ID for the user.</returns>
+        /// <remarks>
+        /// This requires ID_CAP_IDENTITY_USER to be set in the Manifest. This in turn will 
+        /// trigger a warning to the user when installing from the Store.
+        /// </remarks>
+
         public static string GetWindowsLiveAnonymousId()
         {
             string result = string.Empty;

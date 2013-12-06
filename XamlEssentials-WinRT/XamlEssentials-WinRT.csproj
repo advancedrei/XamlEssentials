@@ -100,6 +100,9 @@
     <Compile Include="..\XamlEssentials-WP8\Helpers\ApplicationInfoHelper.cs">
       <Link>Helpers\ApplicationInfoHelper.cs</Link>
     </Compile>
+    <Compile Include="..\XamlEssentials-WP8\Helpers\EncryptionHelper.cs">
+      <Link>Helpers\EncryptionHelper.cs</Link>
+    </Compile>
     <Compile Include="..\XamlEssentials-WP8\Helpers\StatsHelper.cs">
       <Link>Helpers\StatsHelper.cs</Link>
     </Compile>
@@ -109,6 +112,9 @@
     <None Include="..\XamlEssentials.snk">
       <Link>XamlEssentials.snk</Link>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Extensions\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -117,6 +117,9 @@
     <Compile Include="..\XamlEssentials-NET4\Converters\TypeComparisonToVisibilityConverter.cs">
       <Link>Converters\TypeComparisonToVisibilityConverter.cs</Link>
     </Compile>
+    <Compile Include="..\XamlEssentials-NET4\Extensions\FrameworkElementExtensions.cs">
+      <Link>Extensions\FrameworkElementExtensions.cs</Link>
+    </Compile>
     <Compile Include="..\XamlEssentials-NET4\LocalizableDescriptionAttribute.cs">
       <Link>LocalizableDescriptionAttribute.cs</Link>
     </Compile>

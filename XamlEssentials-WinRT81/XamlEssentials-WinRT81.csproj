@@ -102,6 +102,9 @@
     <Compile Include="..\XamlEssentials-WP8\Helpers\ApplicationInfoHelper.cs">
       <Link>Helpers\ApplicationInfoHelper.cs</Link>
     </Compile>
+    <Compile Include="..\XamlEssentials-WP8\Helpers\EncryptionHelper.cs">
+      <Link>Helpers\EncryptionHelper.cs</Link>
+    </Compile>
     <Compile Include="..\XamlEssentials-WP8\Helpers\StatsHelper.cs">
       <Link>Helpers\StatsHelper.cs</Link>
     </Compile>
