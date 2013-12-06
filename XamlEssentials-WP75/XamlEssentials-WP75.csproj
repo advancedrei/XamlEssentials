@@ -132,6 +132,9 @@
     <Compile Include="..\XamlEssentials-NET4\Converters\TypeComparisonToVisibilityConverter.cs">
       <Link>Converters\TypeComparisonToVisibilityConverter.cs</Link>
     </Compile>
+    <Compile Include="..\XamlEssentials-NET4\Extensions\FrameworkElementExtensions.cs">
+      <Link>Extensions\FrameworkElementExtensions.cs</Link>
+    </Compile>
     <Compile Include="..\XamlEssentials-NET4\LocalizableDescriptionAttribute.cs">
       <Link>LocalizableDescriptionAttribute.cs</Link>
     </Compile>
@@ -140,12 +143,6 @@
     </Compile>
     <Compile Include="..\XamlEssentials-NET4\Storage\StoredItem_T.cs">
       <Link>Storage\StoredItem_T.cs</Link>
-    </Compile>
-    <Compile Include="..\XamlEssentials-WP8\AsyncExceptionEventArgs.cs">
-      <Link>AsyncExceptionEventArgs.cs</Link>
-    </Compile>
-    <Compile Include="..\XamlEssentials-WP8\AsynchronizationContext.cs">
-      <Link>AsynchronizationContext.cs</Link>
     </Compile>
     <Compile Include="..\XamlEssentials-WP8\Helpers\ApplicationInfoHelper.cs">
       <Link>Helpers\ApplicationInfoHelper.cs</Link>
