@@ -42,22 +42,25 @@ namespace XamlEssentials.Helpers
                     _screenSize = (Application.Current.Host.Content.ScaleFactor == 150) ? 6.0f : 0.0f;
                 }
 
-                if (_screenSize != -1.0f) return (_screenSize > 5.0f);
-                try
+                if (_screenSize == -1.0f)
                 {
-                    _screenDpiX = (double)DeviceExtendedProperties.GetValue("RawDpiX");
-                    _screenDpiY = (double)DeviceExtendedProperties.GetValue("RawDpiY");
-                    _resolution = (Size)DeviceExtendedProperties.GetValue("PhysicalScreenResolution");
+                    try
+                    {
+                        _screenDpiX = (double)DeviceExtendedProperties.GetValue("RawDpiX");
+                        _screenDpiY = (double)DeviceExtendedProperties.GetValue("RawDpiY");
+                        _resolution = (Size)DeviceExtendedProperties.GetValue("PhysicalScreenResolution");
 
-                    // Calculate screen diagonal in inches.
-                    _screenSize = Math.Sqrt(
-                        Math.Pow(_resolution.Width / _screenDpiX, 2) + Math.Pow(_resolution.Height / _screenDpiY, 2));
-                }
-                catch (Exception e)
-                {
-                    // We're on older software with lower screen size, carry on.
-                    Debug.WriteLine("IsPhablet error: " + e.Message);
-                    _screenSize = 0;
+                        // Calculate screen diagonal in inches.
+                        _screenSize =
+                            Math.Sqrt(Math.Pow(_resolution.Width / _screenDpiX, 2) +
+                                      Math.Pow(_resolution.Height / _screenDpiY, 2));
+                    }
+                    catch (Exception e)
+                    {
+                        // We're on older software with lower screen size, carry on.
+                        Debug.WriteLine("IsPhablet error: " + e.Message);
+                        _screenSize = 0;
+                    }
                 }
 
                 // Returns true if screen size is bigger than 5 inches - you may edit the value based on your app's needs.

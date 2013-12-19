@@ -47,7 +47,12 @@
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-
+            <StackPanel>
+                <TextBlock Text="Last Clean Shutdown" Margin="10,0" />
+                <TextBlock x:Name="LastCleanShutdown" Margin="10,0" />
+                <TextBlock Text="Current Version Run Count" Margin="10,0" />
+                <TextBlock x:Name="CurrentVersionRunCount" Margin="10,0" />
+            </StackPanel>
         </Grid>
 
         <!--Uncomment to see an alignment grid to help ensure your controls are

@@ -11,7 +11,8 @@
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>A helper library of BindingConverters, MarkupExtensions, and other utilities for building XAML applications for WPF 4 &amp; 4.5, Silverlight 4 &amp; 5, Windows Phone 7.5 &amp; 8, and Windows 8.x.</description>
         <summary>A library of BindingConverters, MarkupExtensions, and helpers for Microsoft's XAML platforms.</summary>
-        <releaseNotes>3.3.3 - Added StoredItem.ForceSave();
+        <releaseNotes>3.4 - FrameworkElement.UpdateSource() for all versions. New properties on ApplicationInfoHelper. New EncryptionHelper for Win8.x &amp; WP8. New BetaExperienceHelper for WP8. Better documentation.
+3.3.3 - Added StoredItem.ForceSave();
 3.3 - New DisplayHelper for supporting Nokia phablets. New PhoneVersionHelper to detect GDRs. ShellToast.ShowWithSound() extension for GDR3 musical toast. Added AsynchronizationContext from MarkerMetro for WP 7.5, 8, and Windows 8.0. Updated StatsHelper to catch more exceptions on all platforms.
 3.2.1 - Re-added support for Windows Phone 7.5.
 3.2 - StatsHelper for getting runtime usage stats on Windows Store and Windows Phone apps. Windows Store support for StoredItem and ApplicationInfoHelper.
@@ -24,7 +25,7 @@
 2.0.1 - Adds the StringFormatConverter to WP7.5 and WP8</releaseNotes>
         <copyright>2011-2013 AdvancedREI, LLC.</copyright>
         <language>en-US</language>
-        <tags>XAML, Silverlight, WinRT, Windows Phone</tags>
+        <tags>XAML, WPF, Silverlight, WinRT, Windows Phone, Extensions, Helpers</tags>
         <frameworkAssemblies>
             <frameworkAssembly assemblyName="PresentationCore" targetFramework=".NETFramework4.0" />
             <frameworkAssembly assemblyName="PresentationCore" targetFramework=".NETFramework4.5" />

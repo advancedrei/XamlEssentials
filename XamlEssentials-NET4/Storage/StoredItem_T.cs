@@ -5,7 +5,6 @@ using System.IO.IsolatedStorage;
 using Windows.Storage;
 #endif
 
-
 namespace XamlEssentials.Storage
 {
 
@@ -24,11 +23,25 @@ namespace XamlEssentials.Storage
         #region Private Members
 
         private T _value;
-        private bool _needRefresh;
+        private T _defaultValue;
+        private bool _needsRefresh;
 
         #endregion
 
         #region Properties
+
+        /// <summary>
+        /// The value that should be substituted when the StoredItem is null or not set.
+        /// </summary>
+        public T DefaultValue 
+        {
+            get { return _defaultValue; }
+        }
+
+        /// <summary>
+        /// The name of the item in storage.
+        /// </summary>
+        public string Name { get; private set; }
 
         /// <summary>
         /// The actual value of the item in storage.
@@ -37,49 +50,38 @@ namespace XamlEssentials.Storage
         {
             get
             {
-                if (this._needRefresh)
+                if (_needsRefresh)
                 {
 #if SILVERLIGHT
-                    if (!IsolatedStorageSettings.ApplicationSettings.TryGetValue(this.Name, out this._value))
+                    if (!IsolatedStorageSettings.ApplicationSettings.TryGetValue(Name, out _value))
                     {
-                        IsolatedStorageSettings.ApplicationSettings[this.Name] = this.DefaultValue;
+                        IsolatedStorageSettings.ApplicationSettings[Name] = _defaultValue;
 #elif WINRT
-                    if (!ApplicationData.Current.LocalSettings.Values.ContainsKey(this.Name))
+                    if (!ApplicationData.Current.LocalSettings.Values.ContainsKey(Name))
                     {
-                        ApplicationData.Current.LocalSettings.Values[this.Name] = this.DefaultValue;
+                        ApplicationData.Current.LocalSettings.Values[Name] = DefaultValue;
 #endif
-                        this._value = this.DefaultValue;
+                        _value = _defaultValue;
                     }
-                    this._needRefresh = false;
+                    _needsRefresh = false;
                 }
 
-                return this._value;
+                return _value;
             }
             set
             {
-                if (this._value.Equals(value))
+                if (_value.Equals(value))
                     return;
 
-                this._value = value;
+                _value = value;
 
                 ForceSave();
             }
         }
 
-        /// <summary>
-        /// The value that should be substituted when the StoredItem is null or not set.
-        /// </summary>
-        public T DefaultValue { get; private set; }
-
-        /// <summary>
-        /// The name of the item in storage.
-        /// </summary>
-        public string Name { get; private set; }
-
-
         #endregion
 
-        #region Methods
+        #region Constructors
 
         /// <summary>
         /// The default constructor for the StoredItem, which specifies the name and the default value.
@@ -88,41 +90,36 @@ namespace XamlEssentials.Storage
         /// <param name="defaultValue">The value that should be substituted when the StoredItem is null or not set.</param>
         public StoredItem(string name, T defaultValue)
         {
-            this.Name = name;
-            this.DefaultValue = defaultValue;
+            Name = name;
+            _defaultValue = defaultValue;
 
             // If isolated storage doesn't have the value stored yet
 #if SILVERLIGHT
-                    if (!IsolatedStorageSettings.ApplicationSettings.TryGetValue(this.Name, out this._value))
-                    {
-                        IsolatedStorageSettings.ApplicationSettings[this.Name] = this.DefaultValue;
+            if (!IsolatedStorageSettings.ApplicationSettings.TryGetValue(Name, out _value))
+            {
+                _value = defaultValue;
+                IsolatedStorageSettings.ApplicationSettings[Name] = _defaultValue;
 #elif WINRT
-                    if (!ApplicationData.Current.LocalSettings.Values.ContainsKey(this.Name))
-                    {
-                        ApplicationData.Current.LocalSettings.Values[this.Name] = this.DefaultValue;
+            if (!ApplicationData.Current.LocalSettings.Values.ContainsKey(Name))
+            {
+                _value = defaultValue;
+                ApplicationData.Current.LocalSettings.Values[Name] = _defaultValue;
 #endif
             }
 
-            this._needRefresh = true;
+            _needsRefresh = true;
         }
 
-        /// <summary>
-        /// A string representation of the StoredItem, typically used for debugging.
-        /// </summary>
-        /// <returns>A string representation of the StoredItem.</returns>
-        public override string ToString()
-        {
-            return this.Name
-                + " with value: " + this._value.ToString()
-                + ", default value: " + this.DefaultValue.ToString();
-        }
+        #endregion
+
+        #region Methods
 
         /// <summary>
         /// Forces the item to clear the cached value and retrieve the value from IsolatedStorage the next time it is accessed.
         /// </summary>
         public void ForceRefresh()
         {
-            this._needRefresh = true;
+            _needsRefresh = true;
         }
 
         /// <summary>
@@ -131,13 +128,22 @@ namespace XamlEssentials.Storage
         public void ForceSave()
         {
             //RWM: Make sure when we get the Value that it doesn't pull from IsolatedStorage.
-            _needRefresh = false;
+            _needsRefresh = false;
 #if SILVERLIGHT
-            IsolatedStorageSettings.ApplicationSettings[this.Name] = _value;
+            IsolatedStorageSettings.ApplicationSettings[Name] = _value;
 #elif WINRT
-            ApplicationData.Current.LocalSettings.Values[this.Name] = _value;
+            ApplicationData.Current.LocalSettings.Values[Name] = _value;
 #endif
-            _needRefresh = true;
+            _needsRefresh = true;
+        }
+
+        /// <summary>
+        /// A string representation of the StoredItem, typically used for debugging.
+        /// </summary>
+        /// <returns>A string representation of the StoredItem.</returns>
+        public override string ToString()
+        {
+            return string.Format("Name: {0}, Value: {1}, Default: {2}", Name, _value, DefaultValue);
         }
 
         #endregion

@@ -7,6 +7,7 @@ using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using XamlEssentials.Example.WP8.Resources;
+using XamlEssentials.Helpers;
 
 namespace XamlEssentials.Example.WP8
 {
@@ -23,6 +24,7 @@ namespace XamlEssentials.Example.WP8
         /// </summary>
         public App()
         {
+            StatsHelper.Initialize();
             // Global handler for uncaught exceptions.
             UnhandledException += Application_UnhandledException;
 

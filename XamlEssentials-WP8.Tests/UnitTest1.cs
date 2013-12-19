@@ -2,6 +2,7 @@
 using System.Net.Http;
 using System.Threading;
 using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
+using XamlEssentials.Helpers;
 
 namespace XamlEssentials.WP8.Tests
 {
@@ -17,13 +18,19 @@ namespace XamlEssentials.WP8.Tests
 
 
         //[TestMethod]
-
-
         private async void InvisibleException()
         {
             var client = new HttpClient();
             await client.GetAsync("http://nuget.ru/");
         }
 
+        [TestMethod]
+        public void UniqueIdTest()
+        {
+            //var publisherHostId = Windows.Phone.System.Analytics.HostInformation.PublisherHostId;
+            //var uniqueId = PhoneExtendedPropertiesHelper.GetDeviceUniqueId();
+            //Assert.AreEqual(publisherHostId, uniqueId);
+
+        }
     }
 }

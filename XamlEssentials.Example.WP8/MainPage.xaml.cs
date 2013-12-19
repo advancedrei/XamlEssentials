@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using XamlEssentials.Helpers;
@@ -25,8 +26,15 @@ namespace XamlEssentials.Example.WP8
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            BetaExperienceHelper.CheckExpiration(DateTime.Now.AddDays(-1));
+            //BetaExperienceHelper.CheckExpiration(DateTime.Now.AddDays(-1));
             //BetaExperienceHelper.CheckExpiration(CalculateFrom.FirstVersion, 90);
+
+            LastCleanShutdown.Text = StatsHelper.LastCleanShutdownDate.ToString("g");
+            CurrentVersionRunCount.Text = StatsHelper.CurrentVersionRunCount.ToString(CultureInfo.InvariantCulture);
+
+
+            ReadItemIds.Value.Add(ReadItemIds.Value.Count + 1);
+            ReadItemIds.ForceSave();
         }
 
         // Sample code for building a localized ApplicationBar
