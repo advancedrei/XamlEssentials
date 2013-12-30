@@ -154,6 +154,7 @@
     <Compile Include="Helpers\BetaExperienceHelper.cs" />
     <Compile Include="Helpers\CalculateFrom.cs" />
     <Compile Include="Helpers\EncryptionHelper.cs" />
+    <Compile Include="Helpers\ResourceHelper.cs" />
     <Compile Include="WindowsPhone8Versions.cs" />
     <Compile Include="Helpers\ApplicationInfoHelper.cs" />
     <Compile Include="Converters\ContactImageConverter.cs" />

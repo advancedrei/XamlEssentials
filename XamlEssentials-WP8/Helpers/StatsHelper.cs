@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Threading.Tasks;
 using XamlEssentials.Storage;
 #if WINDOWS_PHONE
+using System.IO.IsolatedStorage;
 using System.Windows;
 #elif WINRT
 using Windows.UI.Xaml;
@@ -278,6 +279,9 @@ namespace XamlEssentials.Helpers
             TaskScheduler.UnobservedTaskException -= UnobservedTaskException;
             Application.Current.UnhandledException -= RecordUnhandledException;
             LastCleanShutdownDate = DateTime.UtcNow;
+#if WINDOWS_PHONE
+            IsolatedStorageSettings.ApplicationSettings.Save();
+#endif
         }
 
         #endregion

@@ -1,5 +1,4 @@
-﻿using System.Reflection;
-#if SILVERLIGHT
+﻿#if SILVERLIGHT
 using System.IO.IsolatedStorage;
 #elif WINRT
 using Windows.Storage;
@@ -23,25 +22,11 @@ namespace XamlEssentials.Storage
         #region Private Members
 
         private T _value;
-        private T _defaultValue;
         private bool _needsRefresh;
 
         #endregion
 
         #region Properties
-
-        /// <summary>
-        /// The value that should be substituted when the StoredItem is null or not set.
-        /// </summary>
-        public T DefaultValue 
-        {
-            get { return _defaultValue; }
-        }
-
-        /// <summary>
-        /// The name of the item in storage.
-        /// </summary>
-        public string Name { get; private set; }
 
         /// <summary>
         /// The actual value of the item in storage.
@@ -55,13 +40,13 @@ namespace XamlEssentials.Storage
 #if SILVERLIGHT
                     if (!IsolatedStorageSettings.ApplicationSettings.TryGetValue(Name, out _value))
                     {
-                        IsolatedStorageSettings.ApplicationSettings[Name] = _defaultValue;
+                        IsolatedStorageSettings.ApplicationSettings[Name] = DefaultValue;
 #elif WINRT
                     if (!ApplicationData.Current.LocalSettings.Values.ContainsKey(Name))
                     {
                         ApplicationData.Current.LocalSettings.Values[Name] = DefaultValue;
 #endif
-                        _value = _defaultValue;
+                        _value = DefaultValue;
                     }
                     _needsRefresh = false;
                 }
@@ -73,11 +58,25 @@ namespace XamlEssentials.Storage
                 if (_value.Equals(value))
                     return;
 
-                _value = value;
-
-                ForceSave();
+                // Store the value in isolated storage.
+#if SILVERLIGHT
+                IsolatedStorageSettings.ApplicationSettings[Name] = value;
+#elif WINRT
+                ApplicationData.Current.LocalSettings.Values[Name] = value;
+#endif
+                _needsRefresh = true;
             }
         }
+
+        /// <summary>
+        /// The value that should be substituted when the StoredItem is null or not set.
+        /// </summary>
+        public T DefaultValue { get; private set; }
+
+        /// <summary>
+        /// The name of the item in storage.
+        /// </summary>
+        public string Name { get; private set; }
 
         #endregion
 
@@ -91,29 +90,29 @@ namespace XamlEssentials.Storage
         public StoredItem(string name, T defaultValue)
         {
             Name = name;
-            _defaultValue = defaultValue;
+            DefaultValue = defaultValue;
 
             // If isolated storage doesn't have the value stored yet
 #if SILVERLIGHT
             if (!IsolatedStorageSettings.ApplicationSettings.TryGetValue(Name, out _value))
             {
                 _value = defaultValue;
-                IsolatedStorageSettings.ApplicationSettings[Name] = _defaultValue;
+                IsolatedStorageSettings.ApplicationSettings[Name] = DefaultValue;
 #elif WINRT
             if (!ApplicationData.Current.LocalSettings.Values.ContainsKey(Name))
             {
                 _value = defaultValue;
-                ApplicationData.Current.LocalSettings.Values[Name] = _defaultValue;
+                ApplicationData.Current.LocalSettings.Values[Name] = DefaultValue;
 #endif
             }
 
-            _needsRefresh = true;
+            _needsRefresh = false;
         }
 
         #endregion
 
         #region Methods
-
+        
         /// <summary>
         /// Forces the item to clear the cached value and retrieve the value from IsolatedStorage the next time it is accessed.
         /// </summary>
@@ -131,9 +130,11 @@ namespace XamlEssentials.Storage
             _needsRefresh = false;
 #if SILVERLIGHT
             IsolatedStorageSettings.ApplicationSettings[Name] = _value;
+            IsolatedStorageSettings.ApplicationSettings.Save();
 #elif WINRT
             ApplicationData.Current.LocalSettings.Values[Name] = _value;
 #endif
+
             _needsRefresh = true;
         }
 
