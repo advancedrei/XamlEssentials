@@ -78,10 +78,10 @@ namespace XamlEssentials.Helpers
         /// <remarks>
         /// Adapted from http://developer.nokia.com/Resources/Library/Lumia/#!optimising-for-nokia-phablets/optimising-layout-for-big-screens.html
         /// </remarks>
-        [Obsolete("Use ResourcesHelper.AddPhabletStyle() instead.", false)]
+        [Obsolete("Use ResourceHelper.AddPhabletStyle() instead.", false)]
         public static void AddPhabletStyle(string styleXamlUrl)
         {
-            ResourcesHelper.AddPhabletStyle(styleXamlUrl);
+            ResourceHelper.AddPhabletStyle(styleXamlUrl);
         }
 
         /// <summary>
