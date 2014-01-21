@@ -31,6 +31,17 @@ namespace XamlEssentials.Helpers
             }
         }
 
+        /// <summary>
+        /// Specifies whether this phone has GDR2 or later installed.
+        /// </summary>
+        public static bool HasGdr2
+        {
+            get
+            {
+                return Environment.OSVersion.Version >= Gdr2Version;
+            }
+        }
+
 
         /// <summary>
         /// Gets the current GDR version currently installed on a Windows Phone 8 device.

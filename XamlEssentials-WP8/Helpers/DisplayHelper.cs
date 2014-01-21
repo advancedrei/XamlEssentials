@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Windows;
+using Microsoft.Phone.Controls;
 using Microsoft.Phone.Info;
 
 namespace XamlEssentials.Helpers
@@ -24,15 +25,60 @@ namespace XamlEssentials.Helpers
 
         #endregion
 
+        #region Dependency Properties
+
+        /// <summary>
+        /// Attached property that lets you disable screenshots from XAML.
+        /// </summary>
+        /// <remarks>Not intended to be used from your application code.</remarks>
+        public static readonly DependencyProperty ScreenCaptureEnabledProperty =
+            DependencyProperty.RegisterAttached("ScreenCaptureEnabled", typeof(Boolean), typeof(PhoneApplicationPage), new PropertyMetadata(true));
+
+        #endregion
+
         #region Public Methods
 
         /// <summary>
-        /// Detects if the phisical display size of the device is larger than 5" diagonal.
+        /// NOT INTENDED TO BE CALLED FROM YOUR APPLICATION CODE.
+        /// On GDR2 and later: Sets the "IsScreenCaptureEnabled" property on the given PhoneApplicationPage. 
+        /// On GDR1 and earlier: Does nothing.
+        /// </summary>
+        /// <param name="page">The <see cref="PhoneApplicationPage"/> to set the value for.</param>
+        /// <param name="value">The value to set.</param>
+        /// <remarks>Adapted from code originally posted by Pedro Lamas. http://www.pedrolamas.com/2014/01/20/disabling-screenshot-functionality-in-a-windows-phone-app/ </remarks>
+        public static void SetScreenCaptureEnabled(PhoneApplicationPage page, Boolean value)
+        {
+            if (!PhoneVersionHelper.HasGdr2) return;
+            var propertyInfo = typeof(PhoneApplicationPage).GetProperty("IsScreenCaptureEnabled");
+            if (propertyInfo != null)
+            {
+                propertyInfo.SetValue(page, value);
+            }
+        }
+
+        /// <summary>
+        /// Signifies whether or not the ability to capture the screen contents is enabled. Will not throw an exception if property is not supported.
+        /// </summary>
+        /// <param name="page">The <see cref="PhoneApplicationPage"/> to get the value from.</param>
+        /// <returns>
+        /// On GDR2 and later: Returns whether or not screen captures are enabled. 
+        /// On GDR1 and earlier: Returns false.</returns>
+        /// <remarks>Adapted from code originally posted by Pedro Lamas. http://www.pedrolamas.com/2014/01/20/disabling-screenshot-functionality-in-a-windows-phone-app/ </remarks>
+        public static Boolean GetScreenCaptureEnabled(PhoneApplicationPage page)
+        {
+            var propertyInfo = typeof(PhoneApplicationPage).GetProperty("IsScreenCaptureEnabled");
+            if (propertyInfo == null) return true;
+            return (bool)propertyInfo.GetValue(page);
+        }
+
+
+        /// <summary>
+        /// Detects if the physical display size of the device is larger than 5" diagonal.
         /// </summary>
         /// <remarks>
         /// Adapted from http://developer.nokia.com/Resources/Library/Lumia/#!optimising-for-nokia-phablets/optimising-layout-for-big-screens.html
         /// </remarks>
-        public static  bool IsPhablet
+        public static bool IsPhablet
         {
             get
             {

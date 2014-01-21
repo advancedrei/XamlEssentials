@@ -150,6 +150,7 @@
     <Compile Include="AsyncExceptionEventArgs.cs" />
     <Compile Include="AsynchronizationContext.cs" />
     <Compile Include="DisplayResolutions.cs" />
+    <Compile Include="Extensions\PhoneApplicationPageExtensions.cs" />
     <Compile Include="Extensions\ShellToastExtensions.cs" />
     <Compile Include="Helpers\BetaExperienceHelper.cs" />
     <Compile Include="Helpers\CalculateFrom.cs" />
@@ -168,7 +169,9 @@
     <Compile Include="Helpers\PhoneVersionHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Controls\" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).CSharp.targets" />
   <ProjectExtensions />
