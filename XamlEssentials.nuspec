@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>XamlEssentials</id>
-    <version>3.5.0</version>
+    <version>3.6.0</version>
     <authors>Robert McLaws</authors>
     <owners>AdvancedREI</owners>
     <licenseUrl>http://www.ohloh.net/licenses/mslpl</licenseUrl>
@@ -12,20 +12,21 @@
     <description>A helper library of BindingConverters, MarkupExtensions, and other utilities for building XAML applications for WPF 4 &amp; 4.5, Silverlight 4 &amp; 5, Windows Phone 7.5 &amp; 8, and Windows 8.x.</description>
     <summary>A library of BindingConverters, MarkupExtensions, and helpers for Microsoft's XAML platforms.</summary>
     <releaseNotes>
-      3.5 - Moved DisplayHelper.AddPhabletStyle() to the ResourceHelper (with a stub for compatibility), and added a DisplayHelper.AddStyle() method. StatsHelper now forces a save to IsolatedStorage on app termination. Package now uploads sources and debug files to SymbolSource.org.
-      3.4.1 - Fixed a bug in StoredItem.
-      3.4 - FrameworkElement.UpdateSource() for all versions. New properties on ApplicationInfoHelper. New EncryptionHelper for Win8.x &amp; WP8. New BetaExperienceHelper for WP8. Better documentation.
-      3.3.3 - Added StoredItem.ForceSave();
-      3.3 - New DisplayHelper for supporting Nokia phablets. New PhoneVersionHelper to detect GDRs. ShellToast.ShowWithSound() extension for GDR3 musical toast. Added AsynchronizationContext from MarkerMetro for WP 7.5, 8, and Windows 8.0. Updated StatsHelper to catch more exceptions on all platforms.
-      3.2.1 - Re-added support for Windows Phone 7.5.
-      3.2 - StatsHelper for getting runtime usage stats on Windows Store and Windows Phone apps. Windows Store support for StoredItem and ApplicationInfoHelper.
-      3.1 - Introduces the TrialExperienceHelper for Windows Phone 8.
-      3.0 - Moves the Helpers functionality to a new namespace (XamlEssentials.Helpers). Update your using statements accordingly. Also introduces the TrialExperienceHelper for Windows Phone 8. This is a modified version of the one from the Microsoft WP8 samples.
-      2.3 - Introduces a ApplicationInfoHelper for WP8.0 that pulls application details directly from the WMAppManifest.xml file. Also removed PDB files in anticipation of publishing to SymbolSource.org.
-      2.2 - Introduces a WP8 extension from http://compiledexperience.com/blog/posts/async-geocode-query (used with permission).
-      2.1.1 - Fixes PhoneExtendedPropertiesHelper to return a string instead of a byte array.
-      2.1.0 - Adds StoredItem&lt;T&gt; for SL4, SL5, WP7.5, &amp; WP8, and PhoneExtendedPropertiesHelper for WP 7.5 and WP8.
-      2.0.1 - Adds the StringFormatConverter to WP7.5 and WP8
+3.6 - Introduced PhoneApplicationPage.DisableScreenshots() in code, and DisplayHelper.ScreenCaptureEnabled="false" in XAML (both on WP8).
+3.5 - Moved DisplayHelper.AddPhabletStyle() to the ResourceHelper (with a stub for compatibility), and added a DisplayHelper.AddStyle() method. StatsHelper now forces a save to IsolatedStorage on app termination. Package now uploads sources and debug files to SymbolSource.org.
+3.4.1 - Fixed a bug in StoredItem.
+3.4 - FrameworkElement.UpdateSource() for all versions. New properties on ApplicationInfoHelper. New EncryptionHelper for Win8.x &amp; WP8. New BetaExperienceHelper for WP8. Better documentation.
+3.3.3 - Added StoredItem.ForceSave();
+3.3 - New DisplayHelper for supporting Nokia phablets. New PhoneVersionHelper to detect GDRs. ShellToast.ShowWithSound() extension for GDR3 musical toast. Added AsynchronizationContext from MarkerMetro for WP 7.5, 8, and Windows 8.0. Updated StatsHelper to catch more exceptions on all platforms.
+3.2.1 - Re-added support for Windows Phone 7.5.
+3.2 - StatsHelper for getting runtime usage stats on Windows Store and Windows Phone apps. Windows Store support for StoredItem and ApplicationInfoHelper.
+3.1 - Introduces the TrialExperienceHelper for Windows Phone 8.
+3.0 - Moves the Helpers functionality to a new namespace (XamlEssentials.Helpers). Update your using statements accordingly. Also introduces the TrialExperienceHelper for Windows Phone 8. This is a modified version of the one from the Microsoft WP8 samples.
+2.3 - Introduces a ApplicationInfoHelper for WP8.0 that pulls application details directly from the WMAppManifest.xml file. Also removed PDB files in anticipation of publishing to SymbolSource.org.
+2.2 - Introduces a WP8 extension from http://compiledexperience.com/blog/posts/async-geocode-query (used with permission).
+2.1.1 - Fixes PhoneExtendedPropertiesHelper to return a string instead of a byte array.
+2.1.0 - Adds StoredItem&lt;T&gt; for SL4, SL5, WP7.5, &amp; WP8, and PhoneExtendedPropertiesHelper for WP 7.5 and WP8.
+2.0.1 - Adds the StringFormatConverter to WP7.5 and WP8
     </releaseNotes>
     <copyright>2011-2014 AdvancedREI, LLC.</copyright>
     <language>en-US</language>
